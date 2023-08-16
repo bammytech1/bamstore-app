@@ -1,0 +1,217 @@
+.team-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    .splide__slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center !important;
+        // margin-right: 0 !important;
+    }
+}
+.team-container {
+   width: 100%;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+
+.splide__pagination {
+    bottom: -2em !important;
+}
+
+.card-card {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    max-width: 375px;
+    border-radius: 2em !important;
+    .avatar {
+        object-fit: cover;
+        // width:375px;
+        height: inherit;
+        border-radius: 2em 2em 0 0;
+    }
+    .ellipse1 {
+        position: absolute;
+        width: 80px;
+        top: 0;
+        border-radius: 2em;
+    }
+    .ellipse2 {
+        position: absolute;
+        width: 80px;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 0;
+    }
+
+    .card-info {
+        border-radius:2em;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 274px;
+        background: rgba(255, 237, 237, 0.662);
+
+
+        .arrow-bg {
+            position: absolute;
+            border-radius: 60%;
+            left: 50%;
+            right: 50%;
+            transform: translate( -50%, -20px);
+            height: 40px;
+            width: 40px;
+            background: var(--pry-color);
+            img {
+                position: absolute;
+                top: 15px;
+                left: 12px;
+                width: 15px;
+            }
+        }
+        .infs {
+            margin-left: 1em;
+            color: var(--dark);
+            position: absolute;
+            top: 3em;
+
+            h2{
+                font-size: 2em;
+            }
+            .design-icon {
+                width: 40px;
+                top: 0;
+                right: 1em;
+                position: absolute;
+            }
+
+            .expert {
+                margin-right: 1em;
+                margin-top: 1em;
+                display: flex;
+                gap: 1em;
+                justify-content:flex-start;
+                flex-wrap: wrap;
+
+                .expert-in {
+                    background-color: var(--pry-color);
+                    color: var(--light);
+                    border-radius: .5em;
+                    padding: .5em;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:600px) {
+    .card-info {
+        height: 300px !important;
+    }
+    
+}
+
+
+
+
+
+//founders styling
+.founder-section {
+    background-color: var(--pry-color);
+    color: var(--light);
+    display: flex;
+    flex-direction: column;
+    .founder-container {
+        max-width: 1200px;
+        
+        // padding: .5em 1.5em;
+        h4 {
+            text-align: left;
+            // font-size: .8rem;
+            line-height: 32px;
+            letter-spacing: 3px;
+        }
+        p{
+            text-align: left;
+            // font-size: .8rem;
+            line-height: 32px;
+        }
+        picture {
+            .founder-image {
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+        .founder-content {
+            position: relative;
+            h2 {
+                font-size: 2rem;
+                line-height: 32px;
+                letter-spacing: -2;
+                z-index: 2;
+            }
+            h5 {
+                font-size: 1.5rem;
+                max-width: 500px;
+            }
+            p {
+                color: rgb(201, 201, 201);
+                font-size: 1rem;
+                max-width: 500px;
+            }
+
+            .shape {
+                position: absolute;
+                right: 2em;
+                top: 2em;
+                width: 8em;
+            }
+        }
+    }   
+}
+@media only screen and (min-width:600px) {
+    .founder-container {
+        padding: 1em 2em;
+        // background-color: aqua;
+        max-width: 1200px;
+        display: grid;
+        place-items: center;
+        gap: 2em;
+        grid-template-columns: 1fr 1fr;
+    }
+    .founder-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+
+        h2 {
+            font-size: 3.5rem !important;
+            line-height: 64px !important;
+            letter-spacing: -2 !important;
+        }
+        p {
+            font-size: 1rem;
+            max-width: 500px;
+        }
+    }
+
+}
+
+@media only screen and (max-width:600px) {
+    .founder-container {
+        padding: 3em 2em;
+    }
+    .founder-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        
+    }
+
+}

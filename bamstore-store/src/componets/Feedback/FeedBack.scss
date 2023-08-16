@@ -1,0 +1,114 @@
+
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    
+    .splide {
+        width: 100%;
+        max-width: 1000px;
+        .is-active {
+            .slides {
+                opacity: 1;
+            }
+        }
+    }
+    
+}
+.splide__slide {
+    display: flex;
+    flex-direction: column;
+    
+    .slides {
+        // width: 100%;
+        opacity: 0.5;
+        background-color: var(--light);
+        display: flex;
+        flex-direction: column;
+        padding: 2em;
+        gap: 1em;
+        border: 2px solid var(--dark);
+
+        p {
+            max-width: 400px;
+            line-height: 30px;
+        }
+        .row-profile {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            .avatar-container {
+                background-color: #000000;
+                width: 70px;
+                height: 70px;
+                border-radius: 100px;
+
+                .avatar {
+                    display: block;
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 100px;
+                }
+            }
+        }
+        
+    }
+    
+
+}
+
+@media screen and (min-width: 600px){
+    .container {
+        margin-top: 3em;
+        h2 {
+            font-size: 3.5rem;
+            line-height: 40px;
+        }
+
+        .splide {
+            // padding: 0 3em;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            
+
+            
+        }
+
+    }
+        .splide__slide {
+            width: 100%;
+            // background-color: aqua !important;
+            // max-width: 100px;
+            justify-content: center;
+            align-items: center;
+      
+    
+            .slides {
+                padding: 1em 2em;
+                display: flex;
+                gap: 2em;
+                h2 {
+                    font-size: 3.5rem;
+                    font-weight: 700;
+                }
+                
+    
+            }
+
+        }    
+    }
+
+    //mobile view
+
+    @media screen and (max-width: 600px) {
+        .container {
+            width: 100%;
+       
+        }
+        
+    }
