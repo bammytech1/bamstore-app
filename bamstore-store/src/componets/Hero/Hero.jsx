@@ -42,7 +42,7 @@ const Hero = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               className="btn-sec"
-              to="#howWeWork"
+              to="/"
             >
               <Link to="/">Explore Now</Link>
             </motion.div>
