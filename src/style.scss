@@ -1,0 +1,25 @@
+:root {
+	--pry-color: #0066db;
+	--sec-color: #ff6600;
+	--sec-light-color: #ff8c00;
+	--dark: #1e1e24;
+	--light: #ffffff;
+	--gray-bk: #f9f9fb;
+	--gray: #aeb1a9;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 0.9rem;
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--gray-bk);
+	// width: 100%;
+	// display: flex;
+	// flex-direction: column;
+}
