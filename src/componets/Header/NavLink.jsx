@@ -35,11 +35,11 @@ function NavLink() {
             </p>
             {link.submenu && (
               <div className="">
-                <div className=" absolute md:w-full  md:left-1/2 -translate-x-1/2 md:top-14 lg:to16 hidden md:group-hover:flex md:group-hover:items-center justify-center hover:block bg-light box-shadow">
+                <div className=" absolute md:w-full  md:left-1/2 -translate-x-1/2 md:top-16 md:pt-8 lg:to16 hidden md:group-hover:flex md:group-hover:items-center justify-center  hover:block bg-light box-shadow">
                   {/* <div className="py-3">
                     <div className="w-4 h-4 left-3 absolute mt-1 bg-gray-500 rotate-45"></div>
                   </div> */}
-                  <div className="  p-3.5 flex flex-col gap-8 md:flex-row w-full md:justify-center">
+                  <div className="  p-3.5 flex flex-col gap-8 md:flex-row  w-full md:justify-center">
                     {link.sublinks.map((mysublinks, i) => (
                       <div key={i}>
                         <p className="font-semibold">{mysublinks.Head} </p>
@@ -56,7 +56,7 @@ function NavLink() {
                         ))}
                       </div>
                     ))}
-                    <div className="w-3/12 block">
+                    <div key={i} className="w-3/12 block">
                       <img
                         src={laptop}
                         alt=""

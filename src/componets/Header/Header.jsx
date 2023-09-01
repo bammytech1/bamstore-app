@@ -13,7 +13,7 @@ function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="  bg-light w-full px-4   flex justify-center items-center md:fixed ">
+    <header className="  bg-light w-full px-4 py-4  flex justify-center items-center md:fixed z-[9999] ">
       <nav className="container max-w-7xl p-1 bg-white flex item-center font-medium justify-between  w-full  items-center">
         <div className=" z-50  md:w-auto w-full flex justify-between items-center">
           <Link onClick={() => closeMenu()} to="/#" smooth>

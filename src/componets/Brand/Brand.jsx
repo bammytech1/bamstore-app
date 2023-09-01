@@ -1,4 +1,5 @@
 import React from 'react'
+import Marquee from "react-fast-marquee";
 
 import apple from "../../assets/apple.svg"
 import huawei from "../../assets/huawei.svg"
@@ -17,11 +18,13 @@ function Brand() {
         {image: apple}, {image: huawei}, {image:nokia}, {image:playstation}, {image:samsung}, {image:sony}, {image:toshiba}, {image:lenovo}, {image:windows}, {image:lg}, {image:asus}, {image: apple}, {image: huawei}, {image:nokia}, {image:playstation}, {image:samsung}, {image:sony}
     ]
   return (
-    <section className='flex bg-light w-full h-28 gap-8 py-2 overflow-x-auto'>
+    <section className='flex w-full justify-center items-center h-auto gap-8 py-2 transition duration-200 box-shadow-2 '>
+      <Marquee className='flex  w-full justify-between h-28 gap-8' >
         {brandList.map((list) => (
-            <img src={list.image} alt="hello" className=' w-20 aspect-square object-contain mix-blend-normal ' />
+            <img src={list.image} alt="hello" className=' w-20 aspect-square object-contain mr-10  mix-blend-normal ' />
         ))
         }
+      </Marquee>
     </section>
   )
 }

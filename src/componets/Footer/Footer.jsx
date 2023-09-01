@@ -9,7 +9,7 @@ function Footer() {
   return (
     <footer class="w-full text-gray-bk bg-pry-color ">
         <div
-            class="container max-w-7xl flex flex-col flex-wrap px-5 py-24 mx-auto  md:items-center lg:items-start md:flex-row md:flex-no-wrap ">
+            class="container w-full max-w-7xl flex flex-col justify-between px-5 py-24 mx-auto  md:items-center lg:items-start md:flex-row md:flex-no-wrap ">
             <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
                 <a class="flex items-center justify-center font-medium text-light md:justify-start">
                     <img src={logo} alt="" className="w-28" />
@@ -107,7 +107,7 @@ function Footer() {
                                     name="subscription_email"
                                     type="email"
                                     placeholder="Enter your email"
-                                    class="py-2 pl-2 md:px-5 w-full appearance-none  border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading md:h-12 lg:px-7 h-12 lg:h-14 text-left bg-pry-color text-light"
+                                    class="py-2 pl-2 md:px-5 w-full appearance-none  border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out  border-gray-300 focus:outline-none focus:border-heading md:h-12 lg:px-7 h-12 lg:h-14 text-left bg-light text-dark"
                                     autoComplete="off"
                                     spellCheck="false"
                                     aria-invalid="false"
