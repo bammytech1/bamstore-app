@@ -34,9 +34,9 @@ function watchVideo() {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.9 }}
         whileInView={{ scale: 1 }}
-        className="bg-cover  w-full flex items-center justify-center relative my-6">
+        className="bg-cover  w-full flex items-center justify-center relative ">
            
-            <video muted loop autoPlay playsInline width="100%" className='container aspect-video  w-full  ' >
+            <video muted loop autoPlay playsInline width="100%" className=' aspect-video  w-full  ' >
                     <source  src={video} type="video/webm" className='aspect-video w-full' />
                     <source allow="autoplay" src={video} type="video/mp4" className='aspect-video w-full'/>
             </video>
@@ -47,7 +47,7 @@ function watchVideo() {
                 whileTap={{ scale: 0.9, bounce:3, x: 10, delay:100 }} 
                 whileInView={{ scale: 1 }}
                 onClick={() => watchVideo()} src={video} alt="" />
-                <h3>Unlock the Greatest Value Possible</h3>
+                <h3 className='text-light absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2'>Unlock the Greatest Value Possible</h3>
             </div>
         </motion.div>
   )

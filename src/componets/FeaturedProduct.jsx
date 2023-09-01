@@ -8,29 +8,29 @@ import phone from "../assets/14pro.svg"
 function FeaturedProduct() {
   return (
     <>
-        <section className="bw-full bg-light flex justify-center  p-6 ">
-            <div className="container w-full flex flex-wrap md:flex-row md:flex-nowrap md:gap-4 gap-4 md:gap-y-0 max-w-7xl  justify-between items-center ">
-                <div className='rounded-full  bg-dark w-[100px] h-[100px] md:w-[190px] md:h-[190px] relative'>
+        <section className="w-full bg-light flex flex-col justify-center place-item-center items-center px-6 ">
+            <div className="container  w-full gap-y-8 grid justify-center  items-center grid-cols-2 md:grid-cols-3    md:gap-y-8 max-w-7xl   ">
+                <div className='rounded-full  place-self-center bg-dark w-[120px] h-[120px] md:w-[190px] md:h-[190px] relative'>
                     <img src={accessories} alt="" className=' w-full h-auto md:w-[190px] md:h-auto object-contain block mt-5 ' />
                     <span className='absolute -bottom-5 w-full flex justify-center rounded-full bg-light p-1 md:p-3 font-bold text-base mb-3 text-dark transition duration-200 box-shadow-2'>PHONES</span>
                 </div>
-                <div className='rounded-full  bg-dark w-[100px] h-[100px] md:w-[190px] md:h-[190px] relative'>
+                <div className='rounded-full place-self-center  bg-dark w-[120px] h-[120px] md:w-[190px] md:h-[190px] relative'>
                     <img src={game} alt="" className=' w-full h-auto md:w-[190px] md:h-auto object-contain block mt-5 ' />
                     <span className='absolute -bottom-5 w-full flex justify-center rounded-full bg-light p-1 md:p-3 font-bold text-base mb-3 text-dark transition duration-200 box-shadow-2'>PHONES</span>
                 </div>
-                <div className='rounded-full  bg-dark w-[100px] h-[100px] md:w-[190px] md:h-[190px] relative'>
+                <div className='rounded-full place-self-center  bg-dark w-[120px] h-[120px] md:w-[190px] md:h-[190px] relative'>
                     <img src={accessories} alt="" className=' w-full h-auto md:w-[190px] md:h-auto object-contain block mt-5 ' />
                     <span className='absolute -bottom-5 w-full flex justify-center rounded-full bg-light p-1 md:p-3 font-bold text-base mb-3 text-dark transition duration-200 box-shadow-2'>PHONES</span>
                 </div>
-                <div className='rounded-full  bg-dark w-[100px] h-[100px] md:w-[190px] md:h-[190px] relative'>
+                <div className='rounded-full place-self-center  bg-dark w-[120px] h-[120px] md:w-[190px] md:h-[190px] relative'>
                     <img src={accessories} alt="" className=' w-full h-auto md:w-[190px] md:h-auto object-contain block mt-5 ' />
                     <span className='absolute -bottom-5 w-full flex justify-center rounded-full bg-light p-1 md:p-3 font-bold text-base mb-3 text-dark transition duration-200 box-shadow-2'>PHONES</span>
                 </div>
-                <div className='rounded-full  bg-dark w-[100px] h-[100px] md:w-[190px] md:h-[190px] relative'>
+                <div className='rounded-full place-self-center  bg-dark w-[120px] h-[120px] md:w-[190px] md:h-[190px] relative'>
                     <img src={accessories} alt="" className=' w-full h-auto md:w-[190px] md:h-auto object-contain block mt-5 ' />
                     <span className='absolute -bottom-5 w-full flex justify-center rounded-full bg-light p-1 md:p-3 font-bold text-base mb-3 text-dark transition duration-200 box-shadow-2'>PHONES</span>
                 </div>
-                <div className='rounded-full  bg-dark w-[100px] h-[100px] md:w-[190px] md:h-[190px] relative'>
+                <div className='rounded-full place-self-center  bg-dark w-[120px] h-[120px] md:w-[190px] md:h-[190px] relative'>
                     <img src={accessories} alt="" className=' w-full h-auto md:w-[190px] md:h-auto object-contain block mt-5 ' />
                     <span className='absolute -bottom-5 w-full flex justify-center rounded-full bg-light p-1 md:p-3 font-bold text-base mb-3 text-dark transition duration-200 box-shadow-2'>PHONES</span>
                 </div>

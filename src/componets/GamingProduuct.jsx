@@ -1,60 +1,37 @@
-
-
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
+import React from 'react'
+import Carousel from './carousel/Carousel'
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
-import {ProductData} from "../../datas/productData";
-import {shortenText} from "../../utils";
+import { NewItems } from '../datas/productData'
+import { shortenText } from '../utils'
+import ReactStars from "react-rating-stars-component";
 
 
-
-
-
- const Carousel = () => {
+function GamingProduct() {
   return (
-     <section className="w-full flex flex-col items-center gap-8">
-        <h2 className=' max-w-3xl w-full text-dark text-center font-bold text-2xl md:text-5xl'>This Weeks Most Popular <span className='text-pry-color text-2xl md:text-5xl' >And Best Selling</span></h2>
-        <Splide  className="w-full container max-w-7xl " aria-label="Feedback" options={{
-            fixedWidth: "300px",
-            perPage: 3,
-            gap    : '3rem',
-            breakpoints: {
-                640: {
-                perPage: 2,
-                gap    : '1rem',
-                // height : '6rem',
-                },
-                480: {
-                perPage: 1,
-                gap    : '.7rem',
-                // height : '6rem',
-                },
-            },
-            pagination: false,
-            arrows: true,
-            focus: "center", 
-            autoplay: true,
-            rewind: true,
-            type: "loop",
-        }}>
-            {ProductData.map(feed => {
-                return (
-                    <SplideSlide>
-                        <Slides feed={feed} key={feed.id} />
-                    </SplideSlide>
-                )
-            })}
-        </Splide>
-     </section>
-  );
+    <section className='w-full bg-light flex justify-center  '>
+        <div className='container  max-w-7xl flex flex-col item-center justify-center gap-8 p-6 '>
+            <h2 className=' max-w-3xl w-full  text-dark text-left font-bold text-2xl md:text-5xl'>Gaming</h2>
+            {/* <Carousel /> */}
+            <div className=" grid gap-6 md:grid-cols-3 lg:grid-cols-4 justify-center">
+                {NewItems.map((itemList) => { 
+                    return (
+                    <Products itemList={itemList} key={itemList.id} />
+                )})}
+            </div>
+        </div>
+    </section>
+  )
 }
 
-
-const Slides = (props) => {
-    const {image, title, description, price} = props.feed
+const Products = (props) => {
+    const {image, title, description, price} = props.itemList
     return (
-        <div className="min-w-[300px]  rounded-3xl flex flex-col group bg-light border-[1px] border-pry-color justify-center items-center p-8">
+        <motion.div
+        whileHover={{ scale: 0.9 }}
+        whileTap={{ scale: 1 }}
+         className="min-w-[250px]  rounded-3xl flex flex-col group bg-light border-[1px] border-pry-color justify-center items-center p-6 ">
+                        
                         <div className=" h-40 w-40 rounded-full bg-pry-color border-2 border-white flex items-center justify-center text-white text-base mb-3 md:mb-5 overflow-hidden relative">                                          
                             <img src={image}
                                 className="object-cover w-full h-full scale-100 group-hover:scale-110 transition-all duration-400"
@@ -68,6 +45,17 @@ const Slides = (props) => {
                                 className=" block text-dark font-bold text-left hover:text-primary transition-colors duration-150 text-lg md:text-xl mb-2">{title}</a>
                             <p className="mb-2 font-normal  text-sm md:text-sm text-left text-[#700000]">{shortenText(description, 20) }</p>
                             <p className=' text-dark font-bold text-left ext-lg md:text-xl'><span className=' text-dark font-bold text-left ext-lg md:text-xl'>&#8358;</span>{price} </p>
+                            <ReactStars
+                                count={5}
+                                // onChange={ratingChanged}
+                                size={24}
+                                isHalf={true}
+                                emptyIcon={<i className="far fa-star"></i>}
+                                halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                fullIcon={<i className="fa fa-star"></i>}
+                                activeColor="#ffd700"
+                                value="3"
+                                />
                             <motion.div
                             whileHover={{ scale: 0.9 }}
                             whileTap={{ scale: 1 }}
@@ -77,8 +65,8 @@ const Slides = (props) => {
                                 <Link to="/">Buy Now</Link>
                             </motion.div>
                         </div>
-        </div>
+        </motion.div>
     )
 }
 
-export default Carousel
+export default GamingProduct

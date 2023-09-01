@@ -7,6 +7,9 @@ import BestSelling from '../componets/BestSelling'
 import Workspace from '../componets/Workspace'
 import NewProducts from '../componets/NewProducts'
 import GamingFun from '../componets/GamingFun'
+import GamingProduct from '../componets/GamingProduuct'
+import Recommendation from '../componets/Recommendations'
+Recommendation
 
 function Home() {
   return (
@@ -20,6 +23,8 @@ function Home() {
         <Workspace />
         <NewProducts />
         <GamingFun />
+        <GamingProduct />
+        <Recommendation />
       </main>
     </>
   )
