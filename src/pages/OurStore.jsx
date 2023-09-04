@@ -14,11 +14,11 @@ export const OurStore = () => {
     <Meta title={'Store'} />
       <main className= ' flex flex-col gap-6 bg-light md:mt-24'>
         <BreadCrumb title='Store' />
-        <h3 className='text-stone-600 text-center text-lg md:text-3xl  font-bold'>All Product</h3>
+        <h3 className='text-stone-600 text-center text-lg md:text-3xl md:my-10  font-bold'>All Product</h3>
         <div className="w-full  mb-10 flex flex-wrap justify-center items-center">
-            <div className="w-full border-t border-b border-gray flex items-center justify-around">
-                <h4>200 Products</h4>
-                <div className=' bg-light p-2 flex items-center gap-2 border-l border-r border-gray '>
+            <div className="w-full border-t border-b h-16 border-gray flex items-center justify-around">
+                <h4 className='text-right'>200 Products</h4>
+                <div className=' bg-light p-2 flex h-full items-center gap-2 border-l border-r border-gray '>
                                 <p>Sort by</p>
                                 <select name="" id="" className='st'>
                                     <option value="manual">Featured</option>
