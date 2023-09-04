@@ -54,7 +54,7 @@ import {shortenText} from "../../utils";
 const Slides = (props) => {
     const {image, title, description, price} = props.feed
     return (
-        <div className="min-w-[300px]  rounded-3xl flex flex-col group bg-light border-[1px] border-pry-color justify-center items-center p-8">
+        <div className="min-w-[300px] mb-2 rounded-3xl flex flex-col group bg-light border-[1px] border-pry-color justify-center items-center p-8">
                         <div className=" h-40 w-40 rounded-full bg-pry-color border-2 border-white flex items-center justify-center text-white text-base mb-3 md:mb-5 overflow-hidden relative">                                          
                             <img src={image}
                                 className="object-cover w-full h-full scale-100 group-hover:scale-110 transition-all duration-400"

@@ -27,7 +27,7 @@ function NavLink() {
                   name={`${
                     headings === link.item ? "chevron-up" : "chevron-down"
                   }`}
-                ></ion-icon>
+                 ></ion-icon>
               </span>
               <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                 <ion-icon name="chevron-down"></ion-icon>
@@ -56,7 +56,7 @@ function NavLink() {
                         ))}
                       </div>
                     ))}
-                    <div key={i} className="w-3/12 block">
+                    <div className="w-3/12 block">
                       <img
                         src={laptop}
                         alt=""
@@ -89,7 +89,7 @@ function NavLink() {
                   >
                     {slinks.Head}
 
-                    <span className="text-xl md:mt-1 md:ml-2 inline">
+                    <span className="text-xl md:hidden md:mt-1 md:ml-2 inline">
                       <ion-icon
                         name={`${
                           subHeadings === slinks.Head

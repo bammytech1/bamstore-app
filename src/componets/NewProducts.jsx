@@ -13,7 +13,7 @@ function NewProducts() {
         <div className='container  max-w-7xl flex flex-col item-center justify-center gap-8 p-6 border border-pry-color'>
             <h2 className=' max-w-3xl w-full  text-dark text-center font-bold text-2xl md:text-5xl'>Newly Added</h2>
             {/* <Carousel /> */}
-            <div className=" grid gap-6 md:grid-cols-3 lg:grid-cols-4 justify-center">
+            <div className=" grid min-[650px]:grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 justify-center">
                 {NewItems.map((itemList) => { 
                     return (
                     <Products itemList={itemList} key={itemList.id} />
@@ -30,14 +30,14 @@ const Products = (props) => {
         <motion.div
         whileHover={{ scale: 0.9 }}
         whileTap={{ scale: 1 }}
-         className="min-w-[250px]  rounded-3xl flex flex-col group bg-light border-[1px] border-pry-color justify-center items-center p-6 ">
+         className="max-w-[350px]  rounded-3xl flex flex-col group bg-light border-[1px] border-pry-color justify-center items-center p-6 ">
                         
                         <div className=" h-40 w-40 rounded-full bg-pry-color border-2 border-white flex items-center justify-center text-white text-base mb-3 md:mb-5 overflow-hidden relative">                                          
                             <img src={image}
                                 className="object-cover w-full h-full scale-100 group-hover:scale-110 transition-all duration-400"
                                 alt=""/>
                             <div
-                                className="rounded-full absolute z-10 border-2 border-primary w-[95%] h-[95%] invisible group-hover:visible opacity-0 group-hover:opacity-100 group-hover:scale-90 transition-all duration-500">
+                                className="rounded-full absolute z-10 border-2 border-light w-[95%] h-[95%] invisible group-hover:visible opacity-0 group-hover:opacity-100 group-hover:scale-90 transition-all duration-500">
                             </div>
                         </div>
                         <div className='flex flex-col items-start'>

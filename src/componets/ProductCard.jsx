@@ -39,6 +39,7 @@ export const ProductCard = () => {
                             >
                                 <Link to="/">Buy Now</Link>
                             </motion.div>
+                            <ion-icon size='large' name="add-circle-outline"></ion-icon>
                         </div>
         </motion.div>
   )
