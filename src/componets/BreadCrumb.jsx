@@ -9,7 +9,7 @@ export default function BreadCrumb(props) {
       className=" relative top-2  flex w-full flex-wrap items-center  md:py-6 text-neutral-500  hover:text-neutral-700 focus:text-neutral-700  dark:bg-neutral-600 lg:flex-wrap lg:justify-start"
       data-te-navbar-ref
     >
-      <div className="container max-w-7xl  absolute left-0 right-0 m-auto flex w-full flex-wrap items-center justify-between ">
+      <div className="container max-w-7xl  absolute left-0 right-0 pl-6 m-auto flex w-full flex-wrap items-center justify-between ">
         <nav
           className="flex justify-start bg-grey-light w-full rounded-md"
           aria-label="breadcrumb"

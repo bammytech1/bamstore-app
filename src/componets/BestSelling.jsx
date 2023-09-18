@@ -3,7 +3,7 @@ import React from 'react'
 // import { motion } from "framer-motion";
 // import { Link } from 'react-router-dom';
 // import ProductCarousel from './carousel/Carousel';
-import Carousel from './carousel/Carousel';
+import Carousel from './Carousel';
 
 function BestSelling() {
     return (

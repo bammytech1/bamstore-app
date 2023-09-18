@@ -9,8 +9,18 @@ module.exports = {
   ],
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
   settings: { react: { version: "18.2" } },
-  plugins: ["react-refresh"],
+  plugins: [
+    "react-refresh",
+    "react-hooks", //added
+  ],
   rules: {
     "react-refresh/only-export-components": "warn",
+    "react-hooks/rules-of-hooks": "error", // added
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        additionalHooks: "(useMyCustomHook|useMyOtherCustomHook)",
+      },
+    ], // added
   },
 };

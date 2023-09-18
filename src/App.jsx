@@ -1,22 +1,48 @@
-
 import Layout from "./componets/Layout/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Contact from "./pages/Contact"
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 import "./style.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { OurStore } from "./pages/OurStore";
+import ForgotPassword from "./pages/ForgotPassword";
+import SingleProduct from "./pages/SingleProduct";
+import CartList from "./pages/CartList";
+import Loader from "./componets/Loader";
+
+import axios from "axios";
+
+import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getLoginStatus } from "./redux/features/auth/authSlice";
 
 function App() {
+  axios.defaults.withCredentials = true;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getLoginStatus());
+  }, [dispatch]);
+
   return (
-    <BrowserRouter >
+    <BrowserRouter>
+      {/* <Loader /> */}
       <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route index element={<Home/>}/>
-          <Route path="about" element={<About/>}/>
-          <Route path="contact" element={<Contact/>}/>
-          <Route path="ourstore" element={<OurStore/>}/>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="ourstore" element={<OurStore />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
+          <Route path="ourstore/product/:id" element={<SingleProduct />} />
+          <Route path="cart/:id" element={<CartList />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -9,14 +9,16 @@ export  const ProductData = [
         image : picsItem,
         title: "Headphone",
         description: "Lorem ipsum dolor sit",
-        price: "50,000.88"
+        price: "50,000.88",
+        stock: 0,
     },
     {
         id : 2,
         image : picsItem,
         title: "Laptop",
         description: "Lorem ipsum dolor sit",
-        price: "26,000.33"
+        price: "26,000.33",
+        stock: 1,
     },
     {
         id : 3,
@@ -41,14 +43,16 @@ export  const NewItems = [
         image : picsNew,
         title: "Headphone",
         description: "Lorem ipsum dolor sit",
-        price: "50,000.88"
+        price: "50,000.88",
+        stock: 0,
     },
     {
         id : 2,
         image : picsItem,
         title: "Laptop",
         description: "Lorem ipsum dolor sit",
-        price: "26,000.33"
+        price: "26,000.33",
+        stock: 1,
     },
     {
         id : 3,

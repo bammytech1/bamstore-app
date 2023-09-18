@@ -1,5 +1,5 @@
 import React from 'react'
-import Carousel from './carousel/Carousel'
+import Carousel from './Carousel'
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { NewItems } from '../datas/productData'
@@ -13,7 +13,7 @@ function NewProducts() {
         <div className='container  max-w-7xl flex flex-col item-center justify-center gap-8 p-6 border border-pry-color'>
             <h2 className=' max-w-3xl w-full  text-dark text-center font-bold text-2xl md:text-5xl'>Newly Added</h2>
             {/* <Carousel /> */}
-            <div className=" grid min-[650px]:grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 justify-center">
+            <div className=" flex justify-between overflow-x-auto md:grid min-[650px]:grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 ">
                 {NewItems.map((itemList) => { 
                     return (
                     <Products itemList={itemList} key={itemList.id} />
@@ -30,7 +30,7 @@ const Products = (props) => {
         <motion.div
         whileHover={{ scale: 0.9 }}
         whileTap={{ scale: 1 }}
-         className="max-w-[350px]  rounded-3xl flex flex-col group bg-light border-[1px] border-pry-color justify-center items-center p-6 ">
+         className="min-w-[250px]  rounded-3xl flex flex-col group bg-light border-[1px] border-pry-color justify-center items-center p-6 ">
                         
                         <div className=" h-40 w-40 rounded-full bg-pry-color border-2 border-white flex items-center justify-center text-white text-base mb-3 md:mb-5 overflow-hidden relative">                                          
                             <img src={image}

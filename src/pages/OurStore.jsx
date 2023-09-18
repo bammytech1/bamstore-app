@@ -5,19 +5,21 @@ import {Helmet} from "react-helmet";
 import { Meta } from '../componets/Meta';
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
 import { TEInput } from "tw-elements-react";
+import { NewItems, ProductData } from '../datas/productData';
 
 
 
 export const OurStore = () => {
+    // const {image, title, description, price, stock} = NewItems
   return (
     <>
     <Meta title={'Store'} />
-      <main className= ' flex flex-col gap-6 bg-light md:mt-24'>
+      <main className= ' flex flex-col gap-6 mt-20 bg-light md:mt-24'>
         <BreadCrumb title='Store' />
         <h3 className='text-stone-600 text-center text-lg md:text-3xl md:my-10  font-bold'>All Product</h3>
         <div className="w-full  mb-10 flex flex-wrap justify-center items-center">
             <div className="w-full border-t border-b h-16 border-gray flex items-center justify-around">
-                <h4 className='text-right'>200 Products</h4>
+                <h3 className='text-dark'>{NewItems.length} Products</h3>
                 <div className=' bg-light p-2 flex h-full items-center gap-2 border-l border-r border-gray '>
                                 <p>Sort by</p>
                                 <select name="" id="" className='st'>
@@ -30,10 +32,10 @@ export const OurStore = () => {
                                 </select>
                 </div>
             </div>
-            <div className='w-full container max-w-7xl md:flex md:justify-around  '>
-            <div className="flex max-w-[300px] flex-row border-l border-r border-gray">
+            <div className='w-full text-base-100 container max-w-7xl md:flex md:justify-around  '>
+            <div className="flex max-w-[300px] flex-row border-l border-r border-b border-gray">
                     <div className=" hidden md:p-2 md:flex md:flex-col md:gap-4">
-                        <div className="flex flex-col items-start gap-4 bg-gray-bk p-4 rounded-lg">
+                        <div className="flex flex-col items-start gap-4 border-b border-gray bg-gray-bk p-4 ">
                             <h3 className='font-bold text-base '>Shop by Categories</h3>
                                 <ul className='flex flex-col gap-2'>
                                     <li>Phones</li>
@@ -42,7 +44,7 @@ export const OurStore = () => {
                                     <li>Accessories</li>
                                 </ul>
                         </div>
-                        <div className="flex flex-col items-start gap-4 bg-gray-bk p-4 rounded-lg">
+                        <div className="flex flex-col items-start gap-4 border-b border-gray  bg-gray-bk p-4 ">
                             <h3 className='font-bold text-base '>filter By</h3>
                             <div>
                                 <h4>Availability</h4>
@@ -65,25 +67,12 @@ export const OurStore = () => {
                             </div>
                             <div>
                                 <h4 className='font-bold'>Price</h4>
-                                <div className="max-w-sm flex justify-center items-center  gap-2">
-                                
-                                    <TEInput
-                                    className='max-w-[70px]'
+                                <div className="max-w-[300px] flex justify-center items-center  gap-2">
+                                    <label htmlFor="">&#8358;</label>
+                                    <input type="text" placeholder="From"  className="input bg-neutral input-bordered border-base-100 w-full max-w-xs" />
+                                    <label htmlFor="">&#8358;</label>
+                                    <input type="text" placeholder="To"  className="input bg-neutral input-bordered border-base-100 w-full max-w-xs" />
                                     
-                                        type="text"
-                                        id="exampleFormControlInput1"
-                                        label="&#8358;"
-                                        >
-
-                                    </TEInput>
-                                    <span>to</span>
-                                    <TEInput
-                                    className='max-w-[70px]'
-                                        type="text"
-                                        id="exampleFormControlInput1"
-                                        label="&#8358;"
-                                    >
-                                    </TEInput>
                                 </div>
                             </div>
                             <div>
@@ -137,7 +126,7 @@ export const OurStore = () => {
                                 
                             </div>
                         </div>
-                        <div className="flex flex-col items-start gap-4 bg-gray-bk p-4 rounded-lg">
+                        <div className="flex flex-col items-start gap-4 border-b border-gray  bg-gray-bk p-4 ">
                             <h3 className='font-bold text-base '>Product Tags</h3>
                                 <ul className='flex flex-col gap-2'>
                                     <li>Phone</li>

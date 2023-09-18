@@ -11,9 +11,9 @@ function NavLink() {
     <>
       {links.map((link, i) => (
         <div key={i}>
-          <div className="px-3 text-left cursor-pointer group">
+          <div className="px-1  text-left cursor-pointer group">
             <p
-              className="py-3 flex justify-between items-center group md:pr-0 pr-5"
+              className="py-3  flex justify-center font-medium text-base-100 md:text-sm lg:text-lg items-center group md:pr-0 pr-5"
               onClick={() => {
                 headings !== link.item
                   ? setHeadings(link.item)
@@ -35,7 +35,7 @@ function NavLink() {
             </p>
             {link.submenu && (
               <div className="">
-                <div className=" absolute md:w-full  md:left-1/2 -translate-x-1/2 md:top-16 md:pt-8 lg:to16 hidden md:group-hover:flex md:group-hover:items-center justify-center  hover:block bg-light box-shadow">
+                <div className=" absolute md:w-full cc  md:left-1/2 -translate-x-1/2 m-auto md:top-16 md:pt-8 lg:top-16 hidden md:group-hover:flex md:group-hover:items-center justify-center  hover:block bg-light box-shadow">
                   {/* <div className="py-3">
                     <div className="w-4 h-4 left-3 absolute mt-1 bg-gray-500 rotate-45"></div>
                   </div> */}
@@ -85,7 +85,7 @@ function NavLink() {
                         ? setSubHeadings(slinks.Head)
                         : setSubHeadings("")
                     }
-                    className="text-left py-4 pl-7 font-semibold cursor-pointer flex justify-between items-center md:pr-0 pr-5"
+                    className="text-left py-2 pl-2  font-medium cursor-pointer flex justify-between items-center md:pr-0 pr-5"
                   >
                     {slinks.Head}
 
@@ -104,7 +104,7 @@ function NavLink() {
                   ${subHeadings === slinks.Head ? "md:hidden" : "hidden"}`}
                   >
                     {slinks.sublink.map((slink, i) => (
-                      <li key={i} className="py-3 pl-14 text-left ">
+                      <li key={i} className="py-3 pl-14  font-medium text-left ">
                         <Link to={slink.link} className="hover:text-blue-600">
                           {slink.item}
                         </Link>

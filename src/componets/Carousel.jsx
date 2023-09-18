@@ -4,8 +4,8 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
-import {ProductData} from "../../datas/productData";
-import {shortenText} from "../../utils";
+import {ProductData} from "../datas/productData";
+import {shortenText} from "../utils";
 
 
 
