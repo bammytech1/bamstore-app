@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import laptop from "../../assets/PngItem_3368757.png";
 import { links } from "./Links";
 import { useState } from "react";
@@ -27,7 +27,7 @@ function NavLink() {
                   name={`${
                     headings === link.item ? "chevron-up" : "chevron-down"
                   }`}
-                 ></ion-icon>
+                ></ion-icon>
               </span>
               <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                 <ion-icon name="chevron-down"></ion-icon>
@@ -35,7 +35,8 @@ function NavLink() {
             </p>
             {link.submenu && (
               <div className="">
-                <div className=" absolute md:w-full cc  md:left-1/2 -translate-x-1/2 m-auto md:top-16 md:pt-8 lg:top-16 hidden md:group-hover:flex md:group-hover:items-center justify-center  hover:block bg-light box-shadow">
+                {/* <div className="absolute w-full  md:left-1/2 -translate-x-1/2 m-auto md:top-16 md:pt-8 lg:top-[64px] hidden md:group-hover:flex md:group-hover:items-center justify-between  hover:block bg-light box-shadow"></div> */}
+                <div className=" absolute w-full  md:left-1/2 -translate-x-1/2 m-auto md:top-16 md:pt-8 lg:top-16 hidden md:group-hover:flex md:group-hover:items-center justify-between  hover:block bg-light box-shadow">
                   {/* <div className="py-3">
                     <div className="w-4 h-4 left-3 absolute mt-1 bg-gray-500 rotate-45"></div>
                   </div> */}
@@ -51,7 +52,12 @@ function NavLink() {
                             >
                               {slink.item}
                             </a> */}
-                            <Link to={slink.link} className="hover:text-blue-600 ">{slink.item}</Link>
+                            <Link
+                              to={slink.link}
+                              className="hover:text-blue-600 "
+                            >
+                              {slink.item}
+                            </Link>
                           </li>
                         ))}
                       </div>
@@ -104,7 +110,10 @@ function NavLink() {
                   ${subHeadings === slinks.Head ? "md:hidden" : "hidden"}`}
                   >
                     {slinks.sublink.map((slink, i) => (
-                      <li key={i} className="py-3 pl-14  font-medium text-left ">
+                      <li
+                        key={i}
+                        className="py-3 pl-14  font-medium text-left "
+                      >
                         <Link to={slink.link} className="hover:text-blue-600">
                           {slink.item}
                         </Link>

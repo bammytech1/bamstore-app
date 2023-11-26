@@ -1,10 +1,7 @@
 import logo from "../../assets/bammylogo.png";
-import user from "../../assets/user.svg";
-import bag from "../../assets/bag-2.svg";
-import search from "../../assets/search-normal.svg";
 import NavLink from "./NavLink";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   IoBagOutline,
   IoSearchOutline,
@@ -17,6 +14,7 @@ import { TECollapse, TERipple } from "tw-elements-react";
 import { useState } from "react";
 import { RESET_AUTH, logout } from "../../redux/features/auth/authSlice";
 import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddenLink";
+import { NavList } from "./NavList";
 // import { motion } from "framer-motion";
 
 function Header() {
@@ -36,9 +34,16 @@ function Header() {
   };
 
   return (
-    <header className="fixed text-base-100  bg-gray-bk w-full p-2 md:p-4  flex justify-center items-center  md:fixed z-[9999]  box-shadow ">
-      <nav className="container max-w-7xl  p-1 flex  font-medium justify-between  w-full  items-center">
+    <header className="fixed text-base-100  bg-light w-full p-2 md:p-4  flex justify-center items-center  md:fixed z-[9999]  box-shadow ">
+      <nav className="container max-w-7xl  p-1 flex   font-medium justify-between  w-full  items-center">
         <div className=" z-50  md:w-auto w-full flex justify-between items-center">
+          <div className=" md:hidden block " onClick={() => setOpen(!open)}>
+            {open ? (
+              <IoCloseOutline style={{ fontSize: "25px" }} />
+            ) : (
+              <IoMenuOutline style={{ fontSize: "25px" }} />
+            )}
+          </div>
           <Link onClick={() => closeMenu()} to="/" smooth>
             <img
               className="logo w-[100px] md:cursor-pointer"
@@ -57,33 +62,17 @@ function Header() {
                 <IoPerson style={{ fontSize: "20px" }} />
               </Link>
             </ShowOnLogin>
-            <Link to={"cart/:id"}>
-              <IoBagOutline style={{ fontSize: "20px" }} />
-            </Link>
-            <div className=" md:hidden block " onClick={() => setOpen(!open)}>
-              {open ? (
-                <IoCloseOutline style={{ fontSize: "25px" }} />
-              ) : (
-                <IoMenuOutline style={{ fontSize: "25px" }} />
-              )}
+            <div className="relative">
+              <span className="absolute -right-2 -top-2">0</span>
+              <Link to={"cart/:id"}>
+                <IoBagOutline style={{ fontSize: "20px" }} />
+              </Link>
             </div>
           </div>
         </div>
         <ul className="md:relative md:flex  flex-wrap md:pl-2 w-full md: md:ml-4 hidden justify-start items-center gap-2">
-          <NavLink />
-          <Link to={"contact"} className="md:text-sm lg:text-lg">
-            Contact
-          </Link>
+          <NavList />
           <div className="md:flex w-[40] h-[40] place-items-end place-content-end absolute right-0 items-center  gap-4  ">
-            <ShowOnLogin>
-              <Link
-                to={"/"}
-                className="md:text-sm lg:text-lg"
-                onClick={logoutUser}
-              >
-                Logout
-              </Link>
-            </ShowOnLogin>
             <ShowOnLogout>
               <Link to={"login"}>
                 <IoPersonOutline style={{ fontSize: "20px" }} />
@@ -98,9 +87,12 @@ function Header() {
               style={{ fontSize: "20px" }}
               onClick={toggleShow}
             />
-            <Link to={"cart/:id"}>
-              <IoBagOutline style={{ fontSize: "20px" }} />
-            </Link>
+            <div className="relative">
+              <span className="absolute -right-2 -top-2">0</span>
+              <Link to={"cart/:id"}>
+                <IoBagOutline style={{ fontSize: "20px" }} />
+              </Link>
+            </div>
           </div>
         </ul>
 
@@ -139,10 +131,7 @@ function Header() {
               </button>
             </TERipple>
           </div>
-          <NavLink />
-          <Link to={"contact"} className="font-medium">
-            Contact
-          </Link>
+          <NavList />
         </ul>
       </nav>
       <TECollapse show={show}>

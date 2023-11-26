@@ -4,6 +4,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 
 import "./style.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -19,6 +20,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getLoginStatus } from "./redux/features/auth/authSlice";
+import CreateProduct from "./componets/admin/createProduct";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -40,9 +42,11 @@ function App() {
           <Route path="ourstore" element={<OurStore />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
-          <Route path="ourstore/product/:id" element={<SingleProduct />} />
+          <Route path="ourstore/product" element={<SingleProduct />} />
           <Route path="cart/:id" element={<CartList />} />
+          <Route path="createProduct" element={<CreateProduct />} />
         </Route>
       </Routes>
     </BrowserRouter>
