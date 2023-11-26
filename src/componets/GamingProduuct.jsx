@@ -4,7 +4,7 @@ import ProductCard from "./ProductCard";
 
 function GamingProduct() {
   return (
-    <section className="w-full  flex justify-center  ">
+    <section className="w-full   flex justify-center  ">
       <div className="container max-w-7xl flex flex-col item-center justify-center gap-8 p-6 ">
         {/* <h2 className=' max-w-3xl w-full  text-dark text-left font-bold text-2xl md:text-5xl'>Gaming</h2> */}
         {/* <Carousel /> */}

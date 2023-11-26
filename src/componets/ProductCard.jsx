@@ -12,25 +12,25 @@ const ProductCard = (props) => {
   let textInputs;
   if (stock === 0) {
     textInputs = (
-      <span className="w-full  flex items-center gap-1 text-red-900">
+      <span className="w-full  flex justify-between items-center gap-1 text-red-900">
         <IoCloseCircleSharp />
-        Out of Stock
+        <p className="text-[10px]">Out of Stock</p>
       </span>
     );
   } else if (stock > 0) {
     textInputs = (
       <span className="  flex items-center gap-1 text-dark">
         <IoCheckmarkCircleSharp />
-        in Stock
+        <p className="text-[10px]">in Stock</p>
       </span>
     );
   }
   return (
     <>
       {/*<!-- Component: E-commerce card --> */}
-      <div className="overflow-hidden rounded bg-white text-slate-500 shadow-md shadow-slate-200">
+      <div className="relative overflow-hidden rounded border bg-white text-slate-500 shadow-md shadow-slate-200">
         {/*  <!-- Image --> */}
-        <Link to="product/:id" className="relative">
+        <Link to="product/:id" className="">
           <img src={image} alt="card image" className="aspect-video w-full" />
           {textInputs && (
             <span className="absolute bg-gray-bk rounded-br-lg p-1  top-0 left-0 flex items-center gap-1 text-dark">
@@ -61,15 +61,15 @@ const ProductCard = (props) => {
           <p>{shortenText(description, 40)}</p>
         </div>
         {/*  <!-- Action base sized basic button --> */}
-        <div className="w-full flex justify-between px-6 mb-4 item-center  ">
+        <div className="w-full flex justify-between  mb-4 ml-4  ">
           <Link
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary text-light"
             whileHover={{ scale: 0.9 }}
             whileTap={{ scale: 1 }}
             to="/product"
           >
-            Buy Now
+            Add to Cart
           </Link>
           <motion.div
             whileHover={{ rotate: 45 }}
