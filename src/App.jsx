@@ -12,6 +12,7 @@ import { OurStore } from "./pages/OurStore";
 import ForgotPassword from "./pages/ForgotPassword";
 import SingleProduct from "./pages/SingleProduct";
 import CartList from "./pages/CartList";
+
 import Loader from "./componets/Loader";
 
 import axios from "axios";
@@ -21,6 +22,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getLoginStatus } from "./redux/features/auth/authSlice";
 import CreateProduct from "./componets/admin/createProduct";
+import NewProducts from "./componets/NewProducts";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -47,6 +49,7 @@ function App() {
           <Route path="ourstore/product" element={<SingleProduct />} />
           <Route path="cart/:id" element={<CartList />} />
           <Route path="createProduct" element={<CreateProduct />} />
+          <Route path="newProduct" element={<NewProducts />} />
         </Route>
       </Routes>
     </BrowserRouter>

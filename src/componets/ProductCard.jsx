@@ -7,7 +7,7 @@ import { shortenText } from "../utils";
 import ReactStars from "react-rating-stars-component";
 
 const ProductCard = (props) => {
-  const { image, title, description, price, stock } = props.itemList;
+  const { image, name, description, price, stock } = props.itemList;
 
   let textInputs;
   if (stock === 0) {
@@ -28,7 +28,7 @@ const ProductCard = (props) => {
   return (
     <>
       {/*<!-- Component: E-commerce card --> */}
-      <div className="relative overflow-hidden rounded border bg-white text-slate-500 shadow-md shadow-slate-200">
+      <div className="relative overflow-hidden rounded-2xl border bg-white text-slate-500 shadow-md shadow-slate-200 p-2">
         {/*  <!-- Image --> */}
         <Link to="product/:id" className="">
           <img src={image} alt="card image" className="aspect-video w-full" />
@@ -52,13 +52,13 @@ const ProductCard = (props) => {
             value="3"
           />
           <header className="mb-4">
-            <h3 className="text-xl font-medium text-slate-700">{title}</h3>
+            <h3 className="text-xl font-medium text-slate-700">{name}</h3>
             <p className=" text-slate-400">
               <span>&#8358;</span>
               {price}
             </p>
           </header>
-          <p>{shortenText(description, 40)}</p>
+          <p>{shortenText(description, 20)}</p>
         </div>
         {/*  <!-- Action base sized basic button --> */}
         <div className="w-full flex justify-between  mb-4 ml-4  ">
