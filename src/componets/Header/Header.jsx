@@ -1,7 +1,8 @@
 import logo from "../../assets/bammylogo.png";
 import NavLink from "./NavLink";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 import {
   IoBagOutline,
   IoSearchOutline,
@@ -18,6 +19,7 @@ import { NavList } from "./NavList";
 // import { motion } from "framer-motion";
 
 function Header() {
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(false);
 
@@ -63,8 +65,10 @@ function Header() {
               </Link>
             </ShowOnLogin>
             <div className="relative">
-              <span className="absolute -right-2 -top-2">0</span>
-              <Link to={"cart/:id"}>
+              <span className="absolute -right-2 -top-2">
+                {cartTotalQuantity}
+              </span>
+              <Link to={"/cart"}>
                 <IoBagOutline style={{ fontSize: "20px" }} />
               </Link>
             </div>
@@ -88,8 +92,10 @@ function Header() {
               onClick={toggleShow}
             />
             <div className="relative">
-              <span className="absolute -right-2 -top-2">0</span>
-              <Link to={"cart/:id"}>
+              <span className="absolute -right-2 -top-2">
+                {cartTotalQuantity}
+              </span>
+              <Link to={"/cart"}>
                 <IoBagOutline style={{ fontSize: "20px" }} />
               </Link>
             </div>

@@ -47,7 +47,7 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="ourstore/product" element={<SingleProduct />} />
-          <Route path="cart/:id" element={<CartList />} />
+          <Route path="cart" element={<CartList />} />
           <Route path="createProduct" element={<CreateProduct />} />
           <Route path="newProduct" element={<NewProducts />} />
         </Route>

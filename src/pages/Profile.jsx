@@ -102,7 +102,7 @@ function Profile() {
         <h3 className="text-dark text-center text-lg md:text-3xl md:my-10  font-bold">
           Profile
         </h3>
-        {user.admin ? (
+        {user ? (
           <div className="  top-16 right-10">
             <Link className="btn btn-primary" to={"/createProduct"}>
               Create New Products

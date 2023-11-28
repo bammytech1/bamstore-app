@@ -2,12 +2,18 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { IoCheckmarkCircleSharp, IoCloseCircleSharp } from "react-icons/io5";
-import { NewItems } from "../datas/productData";
 import { shortenText } from "../utils";
 import ReactStars from "react-rating-stars-component";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/features/cartSlice";
 
 const ProductCard = (props) => {
   const { image, name, description, price, stock } = props.itemList;
+
+  const dispatch = useDispatch();
+  const handleAddToCart = (itemList) => {
+    dispatch(addToCart(itemList));
+  };
 
   let textInputs;
   if (stock === 0) {
@@ -62,16 +68,14 @@ const ProductCard = (props) => {
         </div>
         {/*  <!-- Action base sized basic button --> */}
         <div className="w-full flex justify-between  mb-4 ml-4  ">
-          <Link
+          <button
             type="button"
+            onClick={() => handleAddToCart(itemList)}
             className="btn btn-primary text-light"
-            whileHover={{ scale: 0.9 }}
-            whileTap={{ scale: 1 }}
-            to="/product"
           >
             Add to Cart
-          </Link>
-          <motion.div
+          </button>
+          {/* <motion.div
             whileHover={{ rotate: 45 }}
             whileTap={{ scale: 1 }}
             to="/"
@@ -81,7 +85,7 @@ const ProductCard = (props) => {
               name="add-circle-outline"
               style={{ color: "pry-color" }}
             ></ion-icon>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
       {/*<!-- End E-commerce card --> */}
