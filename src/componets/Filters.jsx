@@ -1,74 +1,54 @@
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
-  ChevronDownIcon,
-  FunnelIcon,
-  MinusIcon,
-  PlusIcon,
-  Squares2X2Icon,
-} from "@heroicons/react/20/solid";
+  IoAddSharp,
+  IoRemoveSharp,
+  IoCloseSharp,
+  IoFilterSharp,
+  IoGridSharp,
+  IoFunnelSharp,
+  IoChevronDownSharp,
+} from "react-icons/io5";
 import AllProducts from "./AllProducts";
+Filters;
+import { useNavigate, useLocation } from "react-router-dom";
+import { filters } from "./FilterData";
 
 const sortOptions = [
-  { name: "Most Popular", href: "#", current: true },
-  { name: "Best Rating", href: "#", current: false },
-  { name: "Newest", href: "#", current: false },
   { name: "Price: Low to High", href: "#", current: false },
   { name: "Price: High to Low", href: "#", current: false },
-];
-const subCategories = [
-  { name: "Console", href: "#" },
-  { name: "Collectibles", href: "#" },
-  { name: "Monitors", href: "#" },
-  { name: "Phones", href: "#" },
-  { name: "Laptop Sleeves", href: "#" },
-];
-const filters = [
-  {
-    id: "color",
-    name: "Color",
-    options: [
-      { value: "white", label: "White", checked: false },
-      { value: "beige", label: "Beige", checked: false },
-      { value: "blue", label: "Blue", checked: true },
-      { value: "brown", label: "Brown", checked: false },
-      { value: "green", label: "Green", checked: false },
-      { value: "purple", label: "Purple", checked: false },
-    ],
-  },
-  {
-    id: "category",
-    name: "Category",
-    options: [
-      { value: "new-arrivals", label: "New Arrivals", checked: false },
-      { value: "sale", label: "Sale", checked: false },
-      { value: "gaming", label: "Gaming", checked: true },
-      { value: "desk", label: "Desk", checked: false },
-      { value: "accessories", label: "Accessories", checked: false },
-    ],
-  },
-  {
-    id: "size",
-    name: "Size",
-    options: [
-      { value: "2l", label: "2L", checked: false },
-      { value: "6l", label: "6L", checked: false },
-      { value: "12l", label: "12L", checked: false },
-      { value: "18l", label: "18L", checked: false },
-      { value: "20l", label: "20L", checked: false },
-      { value: "40l", label: "40L", checked: true },
-    ],
-  },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Filters() {
+export default function Filters({ itemList }) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleFilter = (value, sectionId) => {
+    const searchParams = new URLSearchParams(location.search);
+    let filterValue = searchParams.getAll(sectionId);
+
+    if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
+      filterValue = filterValue[0].split(",").filter((item) => item !== value);
+
+      if (filterValue.length === 0) {
+        searchParams.delete(sectionId);
+      }
+    } else {
+      filterValue.push(value);
+    }
+
+    if (filterValue.length > 0) {
+      searchParams.set(sectionId, filterValue.join(","));
+    }
+    const query = searchParams.toString();
+    navigate({ search: `?${query}` });
+  };
   return (
     <div className="">
       <div>
@@ -112,26 +92,13 @@ export default function Filters() {
                       onClick={() => setMobileFiltersOpen(false)}
                     >
                       <span className="sr-only">Close menu</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                      <IoCloseSharp style={{ fontSize: "25px" }} />
                     </button>
                   </div>
 
                   {/* Filters */}
-                  <form className="mt-4 border-t border-gray-200">
-                    <h3 className="sr-only">Categories</h3>
-                    <ul
-                      role="list"
-                      className="px-2 py-3 font-medium text-gray-900"
-                    >
-                      {subCategories.map((category) => (
-                        <li key={category.name}>
-                          <a href={category.href} className="block px-2 py-3">
-                            {category.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
 
+                  <form className="mt-4 border-t border-gray-200">
                     {filters.map((section) => (
                       <Disclosure
                         as="div"
@@ -145,17 +112,13 @@ export default function Filters() {
                                 <span className="font-medium text-gray-900">
                                   {section.name}
                                 </span>
-                                <span className="ml-6 flex items-center">
+                                <span className=" ml-6 flex items-center">
                                   {open ? (
-                                    <MinusIcon
-                                      className="h-5 w-5"
-                                      aria-hidden="true"
+                                    <IoRemoveSharp
+                                      style={{ fontSize: "25px" }}
                                     />
                                   ) : (
-                                    <PlusIcon
-                                      className="h-5 w-5"
-                                      aria-hidden="true"
-                                    />
+                                    <IoAddSharp style={{ fontSize: "25px" }} />
                                   )}
                                 </span>
                               </Disclosure.Button>
@@ -196,12 +159,9 @@ export default function Filters() {
           </Dialog>
         </Transition.Root>
 
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
           <div className="flex  justify-end gap-20 md:justify-between  border-b border-gray-200 pt-4 pb-2 ">
-            {/* <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-              OurStore
-            </h1> */}
-            <h3 className="text-stone-600 text-center text-lg md:text-3xl md:my-10  font-bold">
+            <h3 className="text-stone-600 tracking-tight text-center text-lg md:text-3xl md:my-10  font-bold">
               All Product
             </h3>
 
@@ -210,10 +170,7 @@ export default function Filters() {
                 <div>
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                     Sort
-                    <ChevronDownIcon
-                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                      aria-hidden="true"
-                    />
+                    <IoChevronDownSharp style={{ fontSize: "20px" }} />
                   </Menu.Button>
                 </div>
 
@@ -236,7 +193,7 @@ export default function Filters() {
                               className={classNames(
                                 option.current
                                   ? "font-medium text-gray-900"
-                                  : "text-gray-500",
+                                  : "text-gray-900",
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm"
                               )}
@@ -256,7 +213,7 @@ export default function Filters() {
                 className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
               >
                 <span className="sr-only">View grid</span>
-                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
+                <IoGridSharp style={{ fontSize: "20px" }} />
               </button>
               <button
                 type="button"
@@ -264,30 +221,23 @@ export default function Filters() {
                 onClick={() => setMobileFiltersOpen(true)}
               >
                 <span className="sr-only">Filters</span>
-                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
+                <IoFilterSharp style={{ fontSize: "20px" }} />
               </button>
             </div>
           </div>
 
-          <section aria-labelledby="products-heading" className="pb-24 pt-6">
-            <h2 id="products-heading" className="sr-only">
+          <section aria-labelledby="products-heading" className="pb-24 pt-6 ">
+            <h2 id="products-heading" className=" sr-only">
               Products
             </h2>
 
-            <div className="grid  grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+            <div className="grid  grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
               {/* Filters */}
               <form className="hidden lg:block ">
-                <h3 className="sr-only">Categories</h3>
-                <ul
-                  role="list"
-                  className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
-                >
-                  {subCategories.map((category) => (
-                    <li key={category.name}>
-                      <a href={category.href}>{category.name}</a>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-bold text-zinc-700">Filters</h3>
+                  <IoFilterSharp style={{ fontSize: "20px" }} />
+                </div>
 
                 {filters.map((section) => (
                   <Disclosure
@@ -299,44 +249,37 @@ export default function Filters() {
                       <>
                         <h3 className="-my-3 flow-root">
                           <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium text-gray-900">
+                            <span className="font-medium text-dark">
                               {section.name}
                             </span>
                             <span className="ml-6 flex items-center">
                               {open ? (
-                                <MinusIcon
-                                  className="h-5 w-5"
-                                  aria-hidden="true"
-                                />
+                                <IoRemoveSharp style={{ fontSize: "20px" }} />
                               ) : (
-                                <PlusIcon
-                                  className="h-5 w-5"
-                                  aria-hidden="true"
-                                />
+                                <IoAddSharp style={{ fontSize: "20px" }} />
                               )}
                             </span>
                           </Disclosure.Button>
                         </h3>
                         <Disclosure.Panel className="pt-6">
-                          <div className="space-y-4">
+                          <div className="space-y-4 ">
                             {section.options.map((option, optionIdx) => (
-                              <div
-                                key={option.value}
-                                className="flex items-center"
-                              >
-                                <input
-                                  id={`filter-${section.id}-${optionIdx}`}
-                                  name={`${section.id}[]`}
-                                  defaultValue={option.value}
-                                  type="checkbox"
-                                  defaultChecked={option.checked}
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                />
-                                <label
-                                  htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="ml-3 text-sm text-gray-600"
-                                >
-                                  {option.label}
+                              <div key={option.value} className="form-control ">
+                                <label className="label   cursor-pointer">
+                                  <span className="label-text text-zinc-500">
+                                    {" "}
+                                    {option.label}
+                                  </span>
+                                  <input
+                                    onChange={() =>
+                                      handleFilter(option.value, section.id)
+                                    }
+                                    id={`filter-${section.id}-${optionIdx}`}
+                                    type="radio"
+                                    name={`${section.id}[]`}
+                                    defaultValue={option.value}
+                                    className="radio radio-sm radio-dark border-dark"
+                                  />
                                 </label>
                               </div>
                             ))}
@@ -349,7 +292,7 @@ export default function Filters() {
               </form>
 
               {/* Product grid */}
-              <div className="lg:col-span-3">
+              <div className="lg:col-span-4">
                 <AllProducts />
               </div>
             </div>

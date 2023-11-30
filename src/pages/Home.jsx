@@ -21,11 +21,11 @@ function Home() {
         <FeaturedProduct />
         <BestSelling />
         <Workspace />
-        <GamingProduct />{" "}
+        {/* <GamingProduct /> */}
         {/*replace with workspace products}
         {/* <NewProducts /> */}
         <GamingFun />
-        <GamingProduct />
+        {/* <GamingProduct /> */}
         <Recommendation />
       </main>
     </>

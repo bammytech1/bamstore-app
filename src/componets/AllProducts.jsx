@@ -13,8 +13,8 @@ import { Fragment } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-function AllProducts() {
-  const { data, error, isLoading } = useGetAllProductsQuery();
+function AllProducts({ itemList }) {
+  const { data, error, isLoading } = useGetAllProductsQuery(itemList);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ function AllProducts() {
     <section className="w-full   flex flex-col items-center justify-center  ">
       <div className="container max-w-7xl flex flex-col item-center justify-center gap-8 p-6 ">
         <div className="w-full p-2">
-          <div className="grid  justify-between overflow-auto  grid-cols-2 gap-2 md:gap-2 md:grid-cols-3 lg:grid-cols-4 ">
+          <div className="grid  justify-between overflow-auto  grid-cols-2 gap-2 md:gap-2 md:grid-cols-4 lg:grid-cols-4 ">
             {isLoading ? (
               <p>Loading...</p>
             ) : error ? (
@@ -132,34 +132,5 @@ function AllProducts() {
     </section>
   );
 }
-
-// const ProductCard = (props) => {
-//   const { image, name, description, price, stock } = props.itemList;
-
-//   const dispatch = useDispatch();
-//   const handleAddToCart = (itemList) => {
-//     dispatch(addToCart(itemList));
-//   };
-
-//   let textInputs;
-//   if (stock === 0) {
-//     textInputs = (
-//       <span className="w-full  flex justify-between items-center gap-1 text-red-900">
-//         <IoCloseCircleSharp />
-//         <p className="text-[10px]">Out of Stock</p>
-//       </span>
-//     );
-//   } else if (stock > 0) {
-//     textInputs = (
-//       <span className="  flex items-center gap-1 text-dark">
-//         <IoCheckmarkCircleSharp />
-//         <p className="text-[10px]">in Stock</p>
-//       </span>
-//     );
-//   }
-//   return (
-
-//   );
-// };
 
 export default AllProducts;
