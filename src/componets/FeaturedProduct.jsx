@@ -4,8 +4,10 @@ import pad from "../assets/controller.svg";
 import accessories from "../assets/accessories.svg";
 import game from "../assets/game.svg";
 import phone from "../assets/14pro.svg";
+import { useNavigate } from "react-router-dom";
 
 function FeaturedProduct() {
+  const navigate = useNavigate();
   return (
     <>
       <section className="w-full bg-black rounded-3xl flex flex-col justify-center place-item-center items-center py-10 ">
@@ -84,7 +86,10 @@ function FeaturedProduct() {
                 Lorem ipsum dolorem architecto aliquam quia praesentium incidunt
                 sit enim, error aperiam,
               </p>
-              <button className="rounded-full bg-light px-5 py-3 text-base mb-3 font-medium text-pry-color transition duration-200 hover:bg-gray active:bg-gray-bk">
+              <button
+                onClick={() => navigate("/ourStore")}
+                className="rounded-full bg-light px-5 py-3 text-base mb-3 font-medium text-pry-color transition duration-200 hover:bg-gray active:bg-gray-bk"
+              >
                 shop now
               </button>
             </div>
@@ -104,7 +109,10 @@ function FeaturedProduct() {
                 Lorem ipsum dolor sit amet ctio dol architecto aliquam quia
                 praesentium incidunt sit enim,{" "}
               </p>
-              <button className="rounded-full bg-blue-500 px-5 py-3 text-base mb-3 font-medium text-white transition duration-200 hover:bg-blue-600 active:bg-blue-700">
+              <button
+                onClick={() => navigate("/ourStore")}
+                className="rounded-full bg-blue-500 px-5 py-3 text-base mb-3 font-medium text-white transition duration-200 hover:bg-blue-600 active:bg-blue-700"
+              >
                 shop now
               </button>
             </div>

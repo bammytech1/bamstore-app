@@ -6,18 +6,40 @@ import "tw-elements-react/dist/css/tw-elements-react.min.css";
 import { NewItems, ProductData } from "../datas/productData";
 import AllProducts from "../componets/AllProducts";
 import { useGetAllProductsQuery } from "../redux/features/product/productsApi";
+import { Navigate, useLocation } from "react-router";
+import Filters from "../componets/Filters";
 
 export const OurStore = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
   // const {image, title, description, price, stock} = NewItems
+  // const location = useLocation
+  //   const handleFilter=(value, sectionId)=> {
+  //     const searchParams=new URLSearchParams(location.search)
+  //     let filterValue=searchParams.getAll(sectionId)
+
+  //     if (filterValue.length > 0 && filterValue[0].split(',').includes(value)) {
+  //       filterValue = filterValue[0].split(',').filter((item) => item!==value);
+
+  //       if(filterValue.length===0){
+  //         searchParams.delete(sectionId)
+  //       }
+  //   }
+  //   else {
+  //     filterValue.push(value);
+  //   }
+
+  //   if(filterValue.length>0){
+  //     searchParams.set(sectionId, filterValue.join(','));
+
+  //   }
+  // const query = searchParams.toString();
+  // Navigate({ search: `?${query}` });
   return (
     <>
       <Meta title={"Store"} />
-      <main className=" flex flex-col gap-6 mt-20  md:mt-24">
+      <main className=" flex  bg-gray-100 flex-col gap-6 mt-20  md:mt-24">
         <BreadCrumb title="Store" />
-        <h3 className="text-stone-600 text-center text-lg md:text-3xl md:my-10  font-bold">
-          All Product
-        </h3>
+
         <div className="w-full  mb-10 flex flex-wrap justify-center items-center">
           {isLoading ? (
             <p>Loading...</p>
@@ -25,11 +47,12 @@ export const OurStore = () => {
             <p>An error occurred...</p>
           ) : (
             <>
-              <div className="w-full border-t border-b h-16 border-gray flex items-center justify-around">
+              <Filters />
+              {/* <div className="w-full border-t border-b h-16 border-gray flex items-center justify-around">
                 <h3 className="text-dark">{data.length} Products</h3>
                 <div className="  p-2 flex h-full items-center gap-2 border-l border-r border-gray ">
                   <p>Sort by</p>
-                  <select name="" id="" className="st">
+                  <select name="" id="" className="select select-xs">
                     <option value="manual">Featured</option>
                     <option value="best-selling" selected="selected">
                       Best Selling
@@ -46,9 +69,9 @@ export const OurStore = () => {
                     </option>
                   </select>
                 </div>
-              </div>
-              <div className="w-full text-base-100 container max-w-7xl md:flex md:justify-around  ">
-                <div className="flex max-w-[300px] flex-row border-l border-r border-b border-gray">
+              </div> */}
+              {/* <div className="w-full text-base-100 container max-w-7xl md:flex md:justify-around  "> */}
+              {/* <div className="flex max-w-[300px] flex-row border-l border-r border-b border-gray">
                   <div className=" hidden md:p-2 md:flex md:flex-col md:gap-4">
                     <div className="flex flex-col items-start gap-4 border-b border-gray bg-gray-bk p-4 ">
                       <h3 className="font-bold text-base ">
@@ -65,11 +88,11 @@ export const OurStore = () => {
                       <h3 className="font-bold text-base ">filter By</h3>
                       <div>
                         <h4>Availability</h4>
-                        <div>
+                        <div className="flex items-center gap-2">
                           <input type="checkbox" value={""} id="" />
                           <label htmlFor="">In Stock (1)</label>
                         </div>
-                        <div>
+                        <div className="flex items-center gap-2">
                           <input type="checkbox" value={""} id="" />
                           <label htmlFor="">Out of Stock (0)</label>
                         </div>
@@ -101,17 +124,6 @@ export const OurStore = () => {
                               <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
                               <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
                               <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
-                              <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
-                              <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
-                              <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
-                              <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
-                              <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
-                              <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
-                              <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
-                              <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
-                              <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
-                              <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
-                              <li className="w-5 h-5 bg-red-700 rounded-3xl"></li>
                             </ul>
                           </div>
                         </div>
@@ -120,11 +132,11 @@ export const OurStore = () => {
                         <h4 className="font-bold">Size</h4>
                         <div className="max-w-[200px] flex justify-center items-center  gap-2">
                           <div>
-                            <div>
+                            <div className="flex items-center gap-2">
                               <input type="checkbox" value={""} id="color-1" />
                               <label htmlFor="">s (2)</label>
                             </div>
-                            <div>
+                            <div className="flex items-center gap-2">
                               <input type="checkbox" value={""} id="color-2" />
                               <label htmlFor="">m (0)</label>
                             </div>
@@ -151,12 +163,11 @@ export const OurStore = () => {
                       </ul>
                     </div>
                   </div>
-                </div>
-                <section className="">
-                  {/* <GamingProduct /> */}
+                </div> */}
+              {/* <section className="">
                   <AllProducts />
-                </section>
-              </div>
+                </section> */}
+              {/* </div> */}
             </>
           )}
         </div>

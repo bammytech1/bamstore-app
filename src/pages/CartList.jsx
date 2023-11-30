@@ -10,6 +10,7 @@ import {
   decreaseCart,
   getTotals,
   removeFromCart,
+  itemTotalQuantity,
 } from "../redux/features/cartSlice";
 
 const CartList = () => {
@@ -72,7 +73,7 @@ const CartList = () => {
                                   />
                                 </div>
 
-                                <div className="bg-gray-100 p-2 relative flex flex-1 flex-col justify-between">
+                                <div className=" p-2 relative flex flex-1 flex-col justify-between">
                                   <div className="sm:col-gap-5 sm:grid sm:grid-cols-2">
                                     <div className="pr-8 sm:pr-5">
                                       <p className="text-base font-semibold text-gray-900">
