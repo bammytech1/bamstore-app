@@ -19,6 +19,10 @@ export const store = configureStore({
 store.dispatch(productsFetch());
 store.dispatch(getTotals());
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  authReducer: authReducer,
+  cartReducer: cartReducer,
+  productReducer: productReducer,
+});
 
 export default configureStore({ reducer: rootReducer });

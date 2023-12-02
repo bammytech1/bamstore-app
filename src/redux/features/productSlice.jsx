@@ -40,28 +40,33 @@ const productSlice = createSlice({
   name: "products",
   initialState,
   reducers: {},
-  extraReducers: {
-    [productsFetch.pending]: (state, action) => {
-      state.status = "pending";
-    },
-    [productsFetch.fulfilled]: (state, action) => {
-      state.status = "success";
-      state.items = action.payload;
-    },
-    [productsFetch.rejected]: (state, action) => {
-      state.status = "rejected";
-    },
-    [createProduct.pending]: (state, action) => {
-      state.createStatus = "pending";
-    },
-    [createProduct.fulfilled]: (state, action) => {
-      state.items.push(action.payload);
-      state.createStatus = "success";
-      toast.success("Product created");
-    },
-    [createProduct.rejected]: (state, action) => {
-      state.createStatus = "rejected";
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(productsFetch.pending, (state) => {
+        state.status = "pending";
+      })
+
+      .addCase(productsFetch.fulfilled, (state, action) => {
+        state.status = "success";
+        state.items = action.payload;
+      })
+
+      .addCase(productsFetch.rejected, (state) => {
+        state.status = "rejected";
+      })
+      .addCase(createProduct.pending, (state) => {
+        state.status = "pending";
+      })
+
+      .addCase(createProduct.fulfilled, (state, action) => {
+        state.items.push(action.payload);
+        state.createStatus = "success";
+        toast.success("Product created");
+      })
+
+      .addCase(createProduct.rejected, (state) => {
+        state.status = "rejected";
+      });
   },
 });
 

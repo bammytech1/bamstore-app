@@ -2,10 +2,10 @@ import React from "react";
 import Carousel from "./Carousel";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { NewItems } from "../datas/productData";
-import { shortenText } from "../utils";
+import { NewItems } from "../../datas/productData";
+import { shortenText } from "../../utils";
 import ReactStars from "react-rating-stars-component";
-import { useGetAllProductsQuery } from "../redux/features/product/productsApi";
+import { useGetAllProductsQuery } from "../../redux/features/product/productsApi";
 
 function NewProducts() {
   const { data, error, isLoading } = useGetAllProductsQuery();

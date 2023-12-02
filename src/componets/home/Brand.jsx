@@ -1,17 +1,17 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 
-import apple from "../assets/apple.svg";
-import huawei from "../assets/huawei.svg";
-import nokia from "../assets/nokia.svg";
-import playstation from "../assets/playstation.svg";
-import samsung from "../assets/samsung.svg";
-import sony from "../assets/sony.svg";
-import toshiba from "../assets/toshiba.svg";
-import lenovo from "../assets/lenovo.svg";
-import windows from "../assets/windows.svg";
-import lg from "../assets/lg.svg";
-import asus from "../assets/asus.svg";
+import apple from "../../assets/apple.svg";
+import huawei from "../../assets/huawei.svg";
+import nokia from "../../assets/nokia.svg";
+import playstation from "../../assets/playstation.svg";
+import samsung from "../../assets/samsung.svg";
+import sony from "../../assets/sony.svg";
+import toshiba from "../../assets/toshiba.svg";
+import lenovo from "../../assets/lenovo.svg";
+import windows from "../../assets/windows.svg";
+import lg from "../../assets/lg.svg";
+import asus from "../../assets/asus.svg";
 
 function Brand() {
   const brandList = [

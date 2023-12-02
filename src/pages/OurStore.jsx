@@ -1,23 +1,20 @@
 import React from "react";
-import GamingProduct from "../componets/GamingProduuct";
+import GamingProduct from "../componets/home/GamingProduuct";
 import BreadCrumb from "../componets/BreadCrumb";
 import { Meta } from "../componets/Meta";
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
 import { NewItems, ProductData } from "../datas/productData";
-import AllProducts from "../componets/AllProducts";
+import AllProducts from "../componets/product/AllProducts";
 import { useGetAllProductsQuery } from "../redux/features/product/productsApi";
 import { Navigate, useLocation } from "react-router";
-import Filters from "../componets/Filters";
 
-export const OurStore = () => {
-  const { data, error, isLoading } = useGetAllProductsQuery();
+export const OurStore = (props) => {
+  const { data, error, isLoading } = useGetAllProductsQuery(props.itemList);
 
   return (
     <>
       <Meta title={"Store"} />
       <main className=" flex  bg-gray-100 flex-col gap-6 mt-20  md:mt-24">
-        <BreadCrumb title="Store" />
-
         <div className="w-full  mb-10 flex flex-wrap justify-center items-center">
           {isLoading ? (
             <p>Loading...</p>
@@ -25,7 +22,7 @@ export const OurStore = () => {
             <p>An error occurred...</p>
           ) : (
             <>
-              <Filters {...data} />
+              <AllProducts {...data} />
             </>
           )}
         </div>

@@ -11,7 +11,7 @@ import {
   logout,
   updateUser,
 } from "../redux/features/auth/authSlice";
-import Loader from "../componets/Loader";
+import Loader from "../componets/home/Loader";
 import { useState, useEffect } from "react";
 import ShowOnLogin from "../componets/hiddenLink/hiddenLink";
 import { IoLogOutOutline } from "react-icons/io5";

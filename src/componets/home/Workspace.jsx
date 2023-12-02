@@ -1,5 +1,5 @@
 import React from "react";
-import workspaceImage from "../assets/workspace.svg";
+import workspaceImage from "../../assets/workspace.svg";
 import { Link } from "react-router-dom";
 
 function Workspace() {

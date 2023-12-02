@@ -9,10 +9,9 @@ import {
   IoFunnelSharp,
   IoChevronDownSharp,
 } from "react-icons/io5";
-import AllProducts from "./AllProducts";
-Filters;
 import { useNavigate, useLocation } from "react-router-dom";
 import { filters } from "./FilterData";
+import CardProducts from "./CardProducts";
 
 const sortOptions = [
   { name: "Price: Low to High", href: "#", current: false },
@@ -23,7 +22,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Filters({ itemList }) {
+export default function AllProducts() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   const location = useLocation();
@@ -88,7 +87,7 @@ export default function Filters({ itemList }) {
                     </h2>
                     <button
                       type="button"
-                      className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+                      className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md pb-2 text-gray-400"
                       onClick={() => setMobileFiltersOpen(false)}
                     >
                       <span className="sr-only">Close menu</span>
@@ -160,15 +159,15 @@ export default function Filters({ itemList }) {
         </Transition.Root>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-          <div className="flex  justify-end gap-20 md:justify-between  border-b border-gray-200 pt-4 pb-2 ">
-            <h3 className="text-stone-600 tracking-tight text-center text-lg md:text-3xl md:my-10  font-bold">
+          <div className="bg-pry-deep flex  justify-end gap-20 md:justify-between p-4 border-b border-gray-200 ">
+            <h3 className="first-line:bg-pry-deep w-full text-neutral text-2xl text-left capitalize">
               All Product
             </h3>
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
-                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-sec-light-color">
                     Sort
                     <IoChevronDownSharp style={{ fontSize: "20px" }} />
                   </Menu.Button>
@@ -248,7 +247,7 @@ export default function Filters({ itemList }) {
                     {({ open }) => (
                       <>
                         <h3 className="-my-3 flow-root">
-                          <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <Disclosure.Button className="flex w-full items-center justify-between  py-3 text-sm text-gray-400 hover:text-gray-500">
                             <span className="font-medium text-dark">
                               {section.name}
                             </span>
@@ -293,7 +292,7 @@ export default function Filters({ itemList }) {
 
               {/* Product grid */}
               <div className="lg:col-span-4">
-                <AllProducts />
+                <CardProducts />
               </div>
             </div>
           </section>

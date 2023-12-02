@@ -1,4 +1,4 @@
-import heroImage from "../assets/hero-image.svg";
+import heroImage from "../../assets/hero-image.svg";
 import { HashLink as Link } from "react-router-hash-link";
 import { motion } from "framer-motion";
 

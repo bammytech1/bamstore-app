@@ -1,14 +1,14 @@
 import React from "react";
-import Hero from "../componets/Hero";
-import Brand from "../componets/Brand";
-import Videoplay from "../componets/Videoplay";
-import FeaturedProduct from "../componets/FeaturedProduct";
-import BestSelling from "../componets/BestSelling";
-import Workspace from "../componets/Workspace";
-import NewProducts from "../componets/NewProducts";
-import GamingFun from "../componets/GamingFun";
-import GamingProduct from "../componets/GamingProduuct";
-import Recommendation from "../componets/Recommendations";
+import Hero from "../componets/home/Hero";
+import Brand from "../componets/home/Brand";
+import Videoplay from "../componets/home/Videoplay";
+import FeaturedProduct from "../componets/home/FeaturedProduct";
+import BestSelling from "../componets/home/BestSelling";
+import Workspace from "../componets/home/Workspace";
+import NewProducts from "../componets/home/NewProducts";
+import GamingFun from "../componets/home/GamingFun";
+import GamingProduct from "../componets/home/GamingProduuct";
+import Recommendation from "../componets/home/Recommendations";
 Recommendation;
 
 function Home() {
@@ -17,7 +17,7 @@ function Home() {
       <main className=" flex flex-col gap-8 bg-light">
         <Hero />
         <Brand />
-        <Videoplay />
+        {/* <Videoplay /> */}
         <FeaturedProduct />
         <BestSelling />
         <Workspace />

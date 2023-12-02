@@ -1,8 +1,8 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { Link } from "react-router-dom";
-import { shortenText } from "../utils";
-import { FeedbackData } from "../datas/testimonyData";
+import { shortenText } from "../../utils";
+import { FeedbackData } from "../../datas/testimonyData";
 
 const Recommendation = () => {
   return (

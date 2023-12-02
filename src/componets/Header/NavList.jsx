@@ -6,13 +6,24 @@ export const NavList = () => {
   return (
     <>
       <ul className="w-full text-sm text-gray-500  mt-4 flex flex-col gap-2 justify-start md:items-center md:flex-row md:mt-0">
-        <Link>Monitor</Link>
-        <Link>Speaker</Link>
-        <Link>Keyboard</Link>
-        <Link>Gaming</Link>
-        <Link>Desk</Link>
-        <Link>Ergonomic Chair</Link>
-        <Link>All Products</Link>
+        <li>
+          <Link to="/phone">Phones</Link>
+        </li>
+        <li>
+          <Link to="/laptop">Laptops</Link>
+        </li>
+        <li>
+          <Link to="/gaming">Gaming</Link>
+        </li>
+        <li>
+          <Link to="/monitor">WorkSpace</Link>
+        </li>
+        <li>
+          <Link to="/monitor">All Products</Link>
+        </li>
+        <li>
+          <Link to="/accessories">Accessories</Link>
+        </li>
         <Link>Contact</Link>
       </ul>
     </>

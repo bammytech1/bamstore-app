@@ -1,5 +1,5 @@
 import React from "react";
-import funImage from "../assets/fun.svg";
+import funImage from "../../assets/fun.svg";
 import { Link } from "react-router-dom";
 
 function GamingFun() {
@@ -16,7 +16,7 @@ function GamingFun() {
             One of a Kind Gaming Experience
           </p>
           <Link
-            to={"/ourStore"}
+            to={"/gaming"}
             className="text-sec-color block text-center text-sm md:text-base font-normal"
           >
             Explore More...

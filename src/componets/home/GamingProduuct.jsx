@@ -1,13 +1,13 @@
-import { useGetAllProductsQuery } from "../redux/features/product/productsApi";
+import { useGetAllProductsQuery } from "../../redux/features/product/productsApi";
 // import ProductCard from "./ProductCard";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/features/cartSlice";
+import { addToCart } from "../../redux/features/cartSlice";
 import {
   IoCartOutline,
   IoCheckmarkCircleSharp,
   IoCloseCircleSharp,
 } from "react-icons/io5";
-import { shortenText } from "../utils";
+import { shortenText } from "../../utils";
 import ReactStars from "react-rating-stars-component";
 import { Fragment } from "react";
 import { motion } from "framer-motion";

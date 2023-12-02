@@ -1,9 +1,9 @@
 import React from "react";
-import pad from "../assets/controller.svg";
+import pad from "../../assets/controller.svg";
 // import iphone from "../assets/iphone.svg"
-import accessories from "../assets/accessories.svg";
-import game from "../assets/game.svg";
-import phone from "../assets/14pro.svg";
+import accessories from "../../assets/accessories.svg";
+import game from "../../assets/game.svg";
+import phone from "../../assets/14pro.svg";
 import { useNavigate } from "react-router-dom";
 
 function FeaturedProduct() {
