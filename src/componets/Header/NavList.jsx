@@ -16,7 +16,7 @@ export const NavList = () => {
           <Link to="/gaming">Gaming</Link>
         </li>
         <li>
-          <Link to="/monitor">WorkSpace</Link>
+          <Link to="/workspace">WorkSpace</Link>
         </li>
         <li>
           <Link to="/monitor">All Products</Link>

@@ -6,8 +6,10 @@ import { useGetAllProductsQuery } from "../redux/features/product/productsApi";
 export default function BreadCrumb(props) {
   const { data, error, isLoading } = useGetAllProductsQuery(props.itemList);
   const product = data;
+  console.log(product);
   return (
     <nav
+      id={product.id}
       className=" relative top-2  flex w-full flex-wrap items-center  md:py-6 text-neutral-500  hover:text-neutral-700 focus:text-neutral-700  dark:bg-neutral-600 lg:flex-wrap lg:justify-center"
       data-te-navbar-ref
     >
@@ -43,7 +45,7 @@ export default function BreadCrumb(props) {
                 /
               </span>
             </li>
-            <li key={props.id}>{props.category}</li>
+            <li>{product.category}</li>
           </ol>
         </nav>
       </div>

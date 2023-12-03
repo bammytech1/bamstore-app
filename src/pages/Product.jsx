@@ -9,13 +9,13 @@ import image1 from "../assets/14pro.svg";
 import image2 from "../assets/controller.svg";
 import ReactStars from "react-rating-stars-component";
 
-const Product = (props) => {
-  const { data, error, isLoading } = useGetAllProductsQuery(props.itemList);
-  console.log(data);
+const Product = () => {
+  const { data, error, isLoading } = useGetAllProductsQuery();
 
   const { productId } = useParams();
-  const product = (data || []).find((e) => e.id === Number(productId));
-  //   const product = data.find((e) => e.id === Number(productId));
+  const product = data.find((e) => e.id === productId);
+  console.log(find());
+  console.log(product);
 
   //   const handleAddToCart = (itemList) => {
   //     dispatch(addToCart(itemList));
@@ -23,7 +23,7 @@ const Product = (props) => {
   //   };
   return (
     <section className="mt-32">
-      <BreadCrumb product={product} />;
+      {/* <BreadCrumb product={data} />; */}
       <main className=" flex flex-col gap-6 items-center ">
         <section className="py-12 sm:py-16 text-dark">
           <div className="container max-w-7xl mx-auto px-4">
@@ -31,12 +31,12 @@ const Product = (props) => {
               <div className="lg:col-span-3 lg:row-end-1">
                 <div className="lg:flex lg:items-start">
                   <div className="lg:order-2 lg:ml-5">
+                    {/* <h2>{productId}</h2> */}
                     <div className="max-w-xl overflow-hidden rounded-lg">
                       <img
-                        key={props.id}
                         className="h-full w-full max-w-full object-cover"
-                        src={props.image}
-                        alt={props.name}
+                        alt={product.name}
+                        src={product.image}
                       />
                     </div>
                   </div>

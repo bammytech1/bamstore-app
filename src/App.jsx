@@ -25,6 +25,7 @@ import CreateProduct from "./componets/admin/createProduct";
 import NewProducts from "./componets/home/NewProducts";
 import ShopByCategory from "./pages/ShopByCategory";
 import banner1 from "./assets/banner1.jpg";
+import banner2 from "./assets/workwork2.jpg";
 import Product from "./pages/Product";
 
 function App() {
@@ -55,24 +56,31 @@ function App() {
             element={<ShopByCategory category="accessories" />}
           />
           <Route
+            path="/workspace"
+            element={<ShopByCategory banner={banner2} category="workspace" />}
+          />
+          <Route
             path="/allproducts"
             element={<ShopByCategory category="accessories" />}
           />
+          {/* <Route
+            path="*"
+            element={<div> Not Found or You do not have permission.</div>}
+          /> */}
           <Route path="/phone" element={<ShopByCategory category="phones" />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="/ourstore" element={<OurStore Product={Product} />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="profile" element={<Profile />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
-          <Route path="/product" element={<Product Product={Product} />} />
-          <Route path=":productId" element={<Product />} />
+          <Route path="product" element={<OurStore />}>
+            <Route path=":productId" element={<OurStore />} />
+          </Route>
 
-          {/* <Route path="ourstore/product" element={<SingleProduct />} /> */}
           <Route path="cart" element={<CartList />} />
           <Route path="createProduct" element={<CreateProduct />} />
-          <Route path="newProduct" element={<NewProducts />} />
+          {/* <Route path="newProduct" element={<NewProducts />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

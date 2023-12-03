@@ -8,8 +8,8 @@ import AllProducts from "../componets/product/AllProducts";
 import { useGetAllProductsQuery } from "../redux/features/product/productsApi";
 import { Navigate, useLocation } from "react-router";
 
-export const OurStore = (props) => {
-  const { data, error, isLoading } = useGetAllProductsQuery(props.itemList);
+export const OurStore = () => {
+  const { data, error, isLoading } = useGetAllProductsQuery();
 
   return (
     <>

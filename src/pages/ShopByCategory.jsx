@@ -28,10 +28,13 @@ const ShopByCategory = (props) => {
 
   return (
     <>
-      <div className="flex pb-24  bg-gray-100 flex-col items-center gap-6 mt-20  md:mt-24  ">
+      <div className="flex pb-24  bg-gray-100 flex-col items-center gap-6 mt-20  md:mt-16  ">
+        {/* <BreadCrumb product={data} /> */}
+        <picture className="w-full">
+          <img className="w-full object-contain" src={props.banner} alt="" />
+        </picture>
         <div className="w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-          {/* <img className="w-full object-contain" src={props.banner} alt="" /> */}
-          <h1 className="bg-pry-deep w-full text-neutral p-4 text-2xl text-left capitalize">
+          <h1 className="bg- w-full text-pry-deep p-4 text-2xl text-left capitalize">
             {props.category}
           </h1>
           <div className="pt-2 md:pt-4 grid  justify-between overflow-auto   grid-cols-2 gap-2 md:gap-2 md:grid-cols-3 lg:grid-cols-4 ">

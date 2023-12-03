@@ -159,8 +159,8 @@ export default function AllProducts() {
         </Transition.Root>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-          <div className="bg-pry-deep flex  justify-end gap-20 md:justify-between p-4 border-b border-gray-200 ">
-            <h3 className="first-line:bg-pry-deep w-full text-neutral text-2xl text-left capitalize">
+          <div className="flex  justify-end gap-20 md:justify-between p-4 border-b border-gray-200 ">
+            <h3 className=" w-full text-pry-deep text-2xl text-left capitalize">
               All Product
             </h3>
 

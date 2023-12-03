@@ -14,8 +14,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function CardProducts(props) {
-  const { data, error, isLoading } = useGetAllProductsQuery(props.itemList);
+function CardProducts() {
+  const { data, error, isLoading } = useGetAllProductsQuery();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
