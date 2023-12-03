@@ -10,12 +10,11 @@ import image2 from "../assets/controller.svg";
 import ReactStars from "react-rating-stars-component";
 
 const Product = () => {
-  const { data, error, isLoading } = useGetAllProductsQuery();
+  const { data, isError, isLoading } = useGetAllProductsQuery();
+  console.log(data);
 
   const { productId } = useParams();
   const product = data.find((e) => e.id === productId);
-  console.log(find());
-  console.log(product);
 
   //   const handleAddToCart = (itemList) => {
   //     dispatch(addToCart(itemList));
@@ -24,19 +23,19 @@ const Product = () => {
   return (
     <section className="mt-32">
       {/* <BreadCrumb product={data} />; */}
-      <main className=" flex flex-col gap-6 items-center ">
+      <main className="bg-neutral flex flex-col gap-6 items-center ">
         <section className="py-12 sm:py-16 text-dark">
           <div className="container max-w-7xl mx-auto px-4">
             <div className="lg:col-gap-12 xl:col-gap-16 mt-8 grid grid-cols-1 gap-12 lg:mt-12 lg:grid-cols-5 lg:gap-16">
               <div className="lg:col-span-3 lg:row-end-1">
                 <div className="lg:flex lg:items-start">
                   <div className="lg:order-2 lg:ml-5">
-                    {/* <h2>{productId}</h2> */}
+                    <h2 className="text-5xl">{productId}</h2>
                     <div className="max-w-xl overflow-hidden rounded-lg">
                       <img
                         className="h-full w-full max-w-full object-cover"
-                        alt={product.name}
-                        src={product.image}
+                        alt={name}
+                        src={image2}
                       />
                     </div>
                   </div>

@@ -1,7 +1,4 @@
 import React, { useEffect } from "react";
-import BreadCrumb from "../componets/BreadCrumb";
-import { Helmet } from "react-helmet";
-import { Meta } from "../componets/Meta";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -11,11 +8,15 @@ import {
   getTotals,
   removeFromCart,
   itemTotalQuantity,
-} from "../redux/features/cartSlice";
+} from "../../redux/features/cartSlice";
+import { Popover } from "@headlessui/react";
+import { useNavigate } from "react-router-dom";
 
-const CartList = () => {
+const CartModal = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getTotals());
@@ -33,17 +34,16 @@ const CartList = () => {
     dispatch(addToCart(cartItem));
   };
 
+  const handleOpenBag = () => {
+    navigate("/cart");
+  };
+
   return (
     <>
-      <Meta title={"Cart"} />
-      <main className=" flex flex-col gap-6 mt-20  md:mt-24">
-        <BreadCrumb title="Cart" />
-        <section className=" bg-gray-100 py-12 sm:py-16 lg:py-20">
+      <main className=" flex flex-col gap-6 ">
+        <section className=" bg-white   mt-5 ">
           <div className="mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col items-center justify-center">
-              <h1 className="text-2xl font-semibold text-gray-900">
-                Your Cart
-              </h1>
+            <div className="w-[400px] flex flex-col items-center justify-center">
               {cart.cartItems.length === 0 ? (
                 <div>
                   <p>Your cart is empty</p>
@@ -54,23 +54,28 @@ const CartList = () => {
                   </div>
                 </div>
               ) : (
-                <div className="w-full mx-auto mt-8 max-w-2xl md:mt-12">
+                <div className="w-full max-h-[600px] overflow-y-scroll mx-auto max-w-md mt-8">
                   <div className="bg-white shadow">
-                    <div className="px-4 py-6 sm:px-8 sm:py-10">
+                    <div className="px-4 py-6 sm:px-8 sm:py-10 bg-gray-bk mb-60 ">
                       <div className="flow-root">
                         <ul className="-my-8">
                           {cart.cartItems?.map((cartItem) => {
                             return (
                               <li
                                 key={cartItem.id}
-                                className="flex flex-col space-y-3 py-6 text-left sm:flex-row sm:space-x-5 sm:space-y-0"
+                                className="flex  space-y-3 py-6 text-left "
                               >
-                                <div className="shrink-0">
+                                <div className="shrink-0 relative">
                                   <img
-                                    className="h-24 w-24 max-w-full rounded-lg object-contain"
+                                    className="bg-white p-2 h-24 w-24 max-w-full rounded-lg object-contain"
                                     src={cartItem.image}
                                     alt=""
                                   />
+                                  <div className="sm:order-1 absolute top-0 right-0 ">
+                                    <div className=" flex  items-center justify-center  rounded-md p-1 text-xs uppercase transition">
+                                      {cartItem.cartQuantity}
+                                    </div>
+                                  </div>
                                 </div>
 
                                 <div className=" p-2 relative flex flex-1 flex-col justify-between">
@@ -90,30 +95,6 @@ const CartList = () => {
                                         <span>&#8358;</span>
                                         {cartItem.price}
                                       </p>
-
-                                      <div className="sm:order-1">
-                                        <div className="mx-auto flex h-8 items-stretch text-gray-600">
-                                          <button
-                                            onClick={() =>
-                                              handleDecreaseCart(cartItem)
-                                            }
-                                            className="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-primary hover:text-white"
-                                          >
-                                            -
-                                          </button>
-                                          <div className="flex w-full items-center justify-center bg-gray-400 px-4 text-xs uppercase transition">
-                                            {cartItem.cartQuantity}
-                                          </div>
-                                          <button
-                                            onClick={() =>
-                                              handleIncreaseCart(cartItem)
-                                            }
-                                            className="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-primary hover:text-white"
-                                          >
-                                            +
-                                          </button>
-                                        </div>
-                                      </div>
                                     </div>
                                   </div>
 
@@ -150,58 +131,49 @@ const CartList = () => {
                         </ul>
                       </div>
 
-                      <div className="mt-6 border-t border-b py-2">
-                        <div className="flex items-center justify-between">
-                          <p className="text-sm text-gray-400">Subtotal</p>
-                          <p className="text-lg font-semibold text-dark">
-                            <span>&#8358;</span>
+                      <div className="absolute bottom-0 left-0 p-4 bg-neutral w-full">
+                        <div className="mt-6 flex items-center justify-between">
+                          <p className="text-sm font-medium text-gray-900">
+                            Total
+                          </p>
+                          <p className="text-2xl font-semibold text-gray-900">
+                            <span className="text-xs font-normal text-gray-400">
+                              <span>&#8358;</span>
+                            </span>{" "}
                             {cart.cartTotalAmount}
                           </p>
                         </div>
-                        <div className="flex items-center justify-between">
-                          <p className="text-sm text-gray-400">Shipping</p>
-                          <p className="text-lg font-semibold text-gray-900">
-                            Free
-                          </p>
+
+                        <div className="mt-6 flex flex-col justify-between gap-3 text-center">
+                          <button
+                            type="button"
+                            className="btn btn-primary w-full"
+                          >
+                            Checkout
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="group-hover:ml-8 ml-4 h-6 w-6 transition-all"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6"
+                              />
+                            </svg>
+                          </button>
+                          <Popover.Button
+                            type="btn"
+                            className="btn"
+                            onClick={() => handleOpenBag()}
+                          >
+                            Open Bag
+                          </Popover.Button>
                         </div>
                       </div>
-                      <div className="mt-6 flex items-center justify-between">
-                        <p className="text-sm font-medium text-gray-900">
-                          Total
-                        </p>
-                        <p className="text-2xl font-semibold text-gray-900">
-                          <span className="text-xs font-normal text-gray-400">
-                            <span>&#8358;</span>
-                          </span>{" "}
-                          {cart.cartTotalAmount}
-                        </p>
-                      </div>
-
-                      <div className="mt-6 text-center">
-                        <button
-                          type="button"
-                          className="btn btn-primary w-full"
-                        >
-                          Checkout
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="group-hover:ml-8 ml-4 h-6 w-6 transition-all"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="2"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M13 7l5 5m0 0l-5 5m5-5H6"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                      <Link to="/product">
-                        <p className="text-right mt-4">continue Shopping</p>
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -214,4 +186,4 @@ const CartList = () => {
   );
 };
 
-export default CartList;
+export default CartModal;

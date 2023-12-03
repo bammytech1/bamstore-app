@@ -74,9 +74,8 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="profile" element={<Profile />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
-          <Route path="product" element={<OurStore />}>
-            <Route path=":productId" element={<OurStore />} />
-          </Route>
+          <Route path="product" element={<OurStore />} />
+          <Route path="product/ :productId" element={<Product />} />
 
           <Route path="cart" element={<CartList />} />
           <Route path="createProduct" element={<CreateProduct />} />

@@ -3,8 +3,6 @@ import React from "react";
 const Cart = () => {
   return (
     <>
-      <Meta title={"Cart"} />
-      <BreadCrumb title="Cart" />
       <main className=" flex flex-col gap-6 mt-20 bg-light md:mt-24">
         <section className="h-screen bg-gray-100 py-12 sm:py-16 lg:py-20">
           <div className="mx-auto px-4 sm:px-6 lg:px-8">

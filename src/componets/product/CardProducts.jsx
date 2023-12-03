@@ -22,7 +22,7 @@ function CardProducts() {
 
   const handleAddToCart = (itemList) => {
     dispatch(addToCart(itemList));
-    navigate("/cart");
+    // navigate("/cart");
   };
 
   // let textInputs;
@@ -60,7 +60,7 @@ function CardProducts() {
                       className="rounded-xl  items-baseline bg- p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 "
                     >
                       <div className="relative w-full  bg-neutral flex items-end overflow-hidden rounded-xl">
-                        <Link to={`/product${itemList.id}`}>
+                        <Link to={`/product/${itemList.id}`}>
                           <img
                             className="aspect-[2/2] object-cover "
                             src={itemList.image}

@@ -2,6 +2,7 @@ import logo from "../../assets/bammylogo.png";
 import NavLink from "./NavLink";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Popover } from "@headlessui/react";
 
 import {
   IoBagOutline,
@@ -16,6 +17,9 @@ import { useState } from "react";
 import { RESET_AUTH, logout } from "../../redux/features/auth/authSlice";
 import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddenLink";
 import { NavList } from "./NavList";
+import Cart from "../../pages/Cart";
+import CartList from "../../pages/CartList";
+import CartModal from "../product/CartModal";
 // import { motion } from "framer-motion";
 
 function Header() {
@@ -34,7 +38,6 @@ function Header() {
     await dispatch(RESET_AUTH());
     navigate("/login");
   };
-
   return (
     <header className="fixed text-base-100  bg-light w-full p-2 md:p-4  flex justify-center items-center  md:fixed z-[9999]  box-shadow ">
       <nav className="container max-w-7xl  p-1 flex   font-medium justify-between  w-full  items-center">
@@ -91,14 +94,20 @@ function Header() {
               style={{ fontSize: "20px" }}
               onClick={toggleShow}
             />
-            <div className="relative">
-              <span className="absolute -right-2 -top-2">
-                {cartTotalQuantity}
-              </span>
-              <Link to={"/cart"}>
+            <Popover className="relative">
+              <Popover.Button>
+                <span className="absolute -right-2 -top-2">
+                  {cartTotalQuantity}
+                </span>
                 <IoBagOutline style={{ fontSize: "20px" }} />
-              </Link>
-            </div>
+              </Popover.Button>
+
+              <Popover.Panel className="absolute     right-0 z-10">
+                <div className=" bordered drop-shadow-2xl   border-pry-deep">
+                  <CartModal />
+                </div>
+              </Popover.Panel>
+            </Popover>
           </div>
         </ul>
 
