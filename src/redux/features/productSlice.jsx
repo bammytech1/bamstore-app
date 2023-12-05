@@ -20,6 +20,14 @@ export const productsFetch = createAsyncThunk(
   }
 );
 
+export const singleProductsFetch = createAsyncThunk(
+  "products/singleProductsFetch",
+  async () => {
+    const response = await axios.get(API_URL + "singleproduct");
+    return response?.data.id;
+  }
+);
+
 export const createProduct = createAsyncThunk(
   "products/createProduct",
   async (values) => {
