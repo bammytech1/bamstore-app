@@ -4,7 +4,7 @@ const User = require("../models/userModel");
 
 const protect = asyncHandler(async (req, res, next) => {
   try {
-    const token = res.cookie.token;
+    const token = req.cookies.token;
     if (!token) {
       res.status(401);
       throw new Error("Not authorized, please login");
@@ -28,6 +28,19 @@ const protect = asyncHandler(async (req, res, next) => {
   }
 });
 
+//for Admin
+const admin = (req, res, next) => {
+  auth(req, res, () => {
+    if (req.user.admin) {
+      next();
+    } else {
+      res.status(401);
+      throw new Error("Access denied. not authorized");
+    }
+  });
+};
+
 module.exports = {
   protect,
+  admin,
 };

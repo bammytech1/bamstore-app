@@ -2,7 +2,6 @@ const asyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/userModel");
-const { errorHandler } = require("../middleware/errorMiddleware");
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -42,7 +41,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const token = generateToken(user._id);
 
   if (user) {
-    const { _id, firstName, lastName, email, role } = user;
+    const { _id, firstName, lastName, email, role, address } = user;
     res.cookie("token", token, {
       path: "/",
       httpOnly: true,
@@ -50,6 +49,7 @@ const registerUser = asyncHandler(async (req, res) => {
       //   secure: true,
       //   sameSite: none,
     });
+
     // send user info
     res.status(201).json({
       _id,
@@ -58,6 +58,7 @@ const registerUser = asyncHandler(async (req, res) => {
       email,
       role,
       token,
+      address,
     });
   } else {
     res.status(400);
@@ -115,13 +116,63 @@ const logoutUser = asyncHandler(async (req, res) => {
     //   secure: true,
     //   sameSite: none,
   });
-  return res.satus(200).json({ message: "successfully Logout" });
+  return res.json({ message: "successfully Logout" });
 });
 
 // get user
 
 const getUser = asyncHandler(async (req, res) => {
-  res.send("Get user");
+  const user = await User.findById(req.user._id).select("-password");
+  if (user) {
+    res.status(200).json(user);
+  } else {
+    res.status(400);
+    throw new Error("User Not Found");
+  }
+});
+
+//get login status
+const getLoginStatus = asyncHandler(async (req, res) => {
+  const token = req.cookies.token;
+  if (!token) {
+    return res.json(false);
+  }
+
+  // verify token
+  const verified = jwt.verify(token, process.env.JWT_SECRET);
+
+  if (verified) {
+    res.json(true);
+  } else {
+    res.json(false);
+  }
+});
+
+// update user
+const updateUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
+  if (user) {
+    const { firstName, lastName, phone, address } = user;
+    user.firstName = req.body.firstName || firstName;
+    user.lastName = req.body.lastName || lastName;
+    user.phone = req.body.phone || phone;
+    user.address = req.body.address || address;
+
+    const updatedUser = await user.save();
+    res.status(200).json(updatedUser);
+  } else {
+    res.status(404);
+    throw new Error("user not found");
+  }
+});
+
+//update photo
+const updatePhoto = asyncHandler(async (req, res) => {
+  const { photo } = req.body;
+  const user = await User.findById(req.user._id);
+  user.photo = photo;
+  const updatedUser = await user.save();
+  res.status(200).json(updatedUser);
 });
 
 module.exports = {
@@ -129,4 +180,7 @@ module.exports = {
   loginUser,
   logoutUser,
   getUser,
+  getLoginStatus,
+  updateUser,
+  updatePhoto,
 };
