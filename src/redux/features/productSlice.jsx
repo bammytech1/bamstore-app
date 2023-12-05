@@ -62,6 +62,19 @@ const productSlice = createSlice({
       .addCase(productsFetch.rejected, (state) => {
         state.status = "rejected";
       })
+.addCase(singleProductsFetch.pending, (state) => {
+        state.status = "pending";
+      })
+
+      .addCase(singleProductsFetch.fulfilled, (state, action) => {
+        state.status = "success";
+        state.items = action.payload;
+      })
+
+      .addCase(singleProductsFetch.rejected, (state) => {
+        state.status = "rejected";
+      })
+      
       .addCase(createProduct.pending, (state) => {
         state.status = "pending";
       })
