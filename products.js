@@ -36,7 +36,7 @@ const products = [
     category: "gaming",
     brand: "iphone",
     quantity: "10",
-    price: "5,000",
+    price: "5000",
     description: "lorem ipsum sit",
     image:
       "https://res.cloudinary.com/ddsyqq7er/image/upload/v1701296457/bamstore/j5xgsyk1yqybkcauec7s.png",
@@ -54,7 +54,7 @@ const products = [
     description: "lorem ipsum sit",
     image:
       "https://res.cloudinary.com/ddsyqq7er/image/upload/v1701296385/bamstore/lz55tnqjncw13u22z66z.png",
-    regularPrice: "300,000",
+    regularPrice: "300000",
     color: "black",
   },
   {
@@ -64,7 +64,7 @@ const products = [
     category: "accessories",
     brand: "PlayStation",
     quantity: "10",
-    price: "25,000",
+    price: "25000",
     description: "lorem ipsum sit",
     image:
       "https://res.cloudinary.com/ddsyqq7er/image/upload/v1701285693/bamstore/x8ks7vdra96xprdqmfbd.png",
@@ -135,7 +135,7 @@ const products = [
     brand: "Orico",
     quantity: "40",
     price: "30000",
-    description: "Orico laptop stand 360 degree",
+    description: "Orico laptop stand 360",
     image:
       "https://res.cloudinary.com/ddsyqq7er/image/upload/v1701548445/bamstore/hyynbwcor1wg6wavzit8.jpg",
     regularPrice: "30,000",
